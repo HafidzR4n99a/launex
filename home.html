@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LaunEx - Laundry Bersih, Wangi & Tanpa Ribet di Yogyakarta</title>
+    <!-- Hubungkan ke CSS Utama -->
+    <link rel="stylesheet" href="launex_style.css">
+    <!-- FontAwesome untuk ikon modern -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- 1. NAVBAR / HEADER -->
+    <header class="main-navbar">
+        <div class="navbar-container">
+            <div class="nav-brand">LaunEx</div>
+            <nav class="nav-links">
+                <a href="#" class="active">Home</a>
+                <a href="#">Layanan</a>
+                <a href="#">Promo</a>
+                <a href="#">Estimasi</a>
+                <a href="#">Help</a>
+            </nav>
+            <div class="nav-auth-buttons">
+                <a href="login.html" class="btn-login">Login</a>
+                <a href="register.html" class="btn-register">Register</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. HERO SECTION -->
+    <section class="hero-section">
+        <div class="hero-container">
+            <!-- Teks Hero Kiri -->
+            <div class="hero-text-side">
+                <div class="badge-laundry">
+                    <i class="fas fa-tshirt"></i> #1 Professional Laundry in Yogyakarta
+                </div>
+                <h1 class="main-heading">
+                    Laundry Bersih, Wangi & <br><span class="highlight-blue">Tanpa Ribet</span> di Yogyakarta
+                </h1>
+                <p class="sub-heading-desc">
+                    Layanan laundry profesional dengan antar-jemput gratis. Solusi praktis untuk gaya hidup modern Anda, memastikan pakaian Anda kembali segar seperti baru.
+                </p>
+                <div class="hero-cta-group">
+                    <button class="btn-cta-primary">Mulai Sekarang <i class="fas fa-arrow-right"></i></button>
+                    <button class="btn-cta-secondary">Lihat Layanan</button>
+                </div>
+                <div class="hero-social-proof">
+                    <div class="avatar-group">
+                        <div class="avatar-circle"></div>
+                        <div class="avatar-circle"></div>
+                        <div class="avatar-circle"></div>
+                    </div>
+                    <span class="proof-text">1,500+ Pelanggan Puas di Yogyakarta</span>
+                </div>
+            </div>
+            
+            <!-- Gambar Hero Kanan -->
+            <div class="hero-image-side">
+                <div class="hero-main-card">
+                    <!-- Gunakan gambar mockup laundry interior Anda -->
+                    <img src="asset/room laundry.jpg" alt="LaunEx Clean Room" class="hero-room-img">
+                    <!-- Floating Badge info kurir -->
+                    <div class="floating-courier-badge">
+                        <div class="courier-icon-box">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <div class="courier-text-box">
+                            <span class="courier-label">Status Proses</span>
+                            <span class="courier-desc">Kurir Sedang Menuju Lokasi Anda</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. LAYANAN UNGGULAN SECTION -->
+    <section class="services-section">
+        <div class="section-header">
+            <div>
+                <h2 class="section-title">Layanan Unggulan Kami</h2>
+                <p class="section-subtitle">Pilih kategori layanan yang sesuai dengan kebutuhan perawatan pakaian Anda.</p>
+            </div>
+            <a href="#" class="view-all-link">Semua Layanan <i class="fas fa-chevron-right"></i></a>
+        </div>
+
+        <div class="services-grid">
+            <!-- Card 1: Laundry Kiloan -->
+            <div class="service-card large-card white-bg">
+                <div class="card-content">
+                    <div class="service-icon"><i class="fas fa-balance-scale"></i></div>
+                    <h3>Laundry Kiloan</h3>
+                    <p>Cuci kering lipat ekonomis untuk kebutuhan harian keluarga Anda.</p>
+                    <div class="card-footer-row">
+                        <span class="price-tag">Mulai Rp 7.000 /kg</span>
+                        <button class="circle-btn"><i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+                <!-- Gambar tumpukan baju putih bersih -->
+                <div class="card-image-bg">
+                    <img src="asset/kiloan.jpg" alt="Laundry Kiloan">
+                </div>
+            </div>
+
+            <!-- Card 2: Cuci Satuan -->
+            <div class="service-card white-bg">
+                <div class="service-icon"><i class="fas fa-shirt"></i></div>
+                <h3>Cuci Satuan</h3>
+                <p>Perawatan khusus untuk jas, kebaya, gaun, dan pakaian mahal Anda.</p>
+                <div class="card-footer-row">
+                    <span class="price-tag">Mulai Rp 12.000</span>
+                    <button class="circle-btn"><i class="fas fa-plus"></i></button>
+                </div>
+            </div>
+
+            <!-- Card 3: Bedding & Linen -->
+            <div class="service-card white-bg">
+                <div class="service-icon"><i class="fas fa-bed"></i></div>
+                <h3>Bedding & Linen</h3>
+                <p>Cuci bedcover, sprei, dan gorden dengan teknik sterilisasi penuh.</p>
+                <div class="card-footer-row">
+                    <span class="price-tag">Mulai Rp 25.000</span>
+                    <button class="circle-btn"><i class="fas fa-plus"></i></button>
+                </div>
+            </div>
+
+            <!-- Card 4: Layanan Express (Dark Blue Accent) -->
+            <div class="service-card dark-accent-card">
+                <div class="service-icon accent-icon"><i class="fas fa-bolt"></i></div>
+                <h3>Layanan Express</h3>
+                <p>Selesai dalam 6 jam. Cocok untuk kebutuhan mendesak pakaian dan kain Anda.</p>
+                <div class="card-footer-row">
+                    <span class="price-tag white-text">Hanya +Rp 5.000 /kg</span>
+                    <button class="btn-pill-white">Pesan Kilat</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. PROMO SPESIAL SECTION -->
+    <section class="promo-section">
+        <h2 class="center-title">Promo Spesial Untuk Anda</h2>
+        <p class="center-subtitle">Nikmati lebih banyak keuntungan dengan voucher dan penawaran terhangat kami.</p>
+
+        <div class="promo-grid">
+            <!-- Promo 1 -->
+            <div class="promo-card">
+                <div class="promo-img-holder">
+                    <img src="asset/diskon.png" alt="Diskon 50%">
+                    <span class="promo-tag orange-tag">NEW USER</span>
+                </div>
+                <div class="promo-body">
+                    <h3>Diskon 50% Pengguna Baru</h3>
+                    <p>Gunakan kode <strong class="code-highlight">LAUNEXNEW</strong> untuk order pertama Anda.</p>
+                    <button class="btn-promo-outline">Ambil Promo</button>
+                </div>
+            </div>
+
+            <!-- Promo 2 -->
+            <div class="promo-card">
+                <div class="promo-img-holder">
+                    <img src="asset/diskon mahasiswa.png" alt="Promo Mahasiswa">
+                    <span class="promo-tag blue-tag">STUDENT ONLY</span>
+                </div>
+                <div class="promo-body">
+                    <h3>Promo Mahasiswa Jogja</h3>
+                    <p>Tunjukkan KTM dan dapatkan harga flat hemat setiap hari senin sampai kamis.</p>
+                    <button class="btn-promo-outline">Lihat Detail</button>
+                </div>
+            </div>
+
+            <!-- Promo 3 -->
+            <div class="promo-card">
+                <div class="promo-img-holder">
+                    <img src="asset/weekend promo.png" alt="Weekend Clean Up">
+                </div>
+                <div class="promo-body">
+                    <h3>Weekend Clean Up</h3>
+                    <p>Paket bundling jemput hari sabtu bersih hari minggu tanpa biaya ekstra.</p>
+                    <button class="btn-promo-outline">Ambil Promo</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. DOWNLOAD MOBILE APP SECTION (CTA TEAL PANEL) -->
+    <section class="download-cta-section">
+        <div class="cta-dark-blue-card">
+            <div class="cta-left-text">
+                <h2>Siap Untuk Pakaian <br>Lebih Bersih?</h2>
+                <p>Dapatkan aplikasi LaunEx sekarang dan nikmati kemudahan menjadwalkan laundry dari genggaman tangan.</p>
+                <div class="store-buttons">
+                    <button class="btn-store"><i class="fab fa-google-play"></i> Play Store</button>
+                    <button class="btn-store"><i class="fab fa-apple"></i> App Store</button>
+                </div>
+            </div>
+            <div class="cta-right-phone">
+                <!-- Gunakan gambar mockup smartphone mockup aplikasi Anda -->
+                <img src="asset/mobile.png" alt="LaunEx Mobile Application" class="phone-mockup-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. FOOTER -->
+    <footer class="footer-section">
+        <div class="footer-container">
+            <div class="footer-info-brand">
+                <h3>LaunEx</h3>
+                <p>© 2026 LaunEx Yogyakarta • Fresh & Dry Professionally. Laundry terbaik untuk pakaian wangi.</p>
+                <div class="footer-social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links-column">
+                <h4>Quick Links</h4>
+                <a href="#">Tentang Kami</a>
+                <a href="#">Cara Kerja</a>
+                <a href="#">Layanan</a>
+                <a href="#">Testimoni</a>
+            </div>
+
+            <div class="footer-links-column">
+                <h4>Support</h4>
+                <a href="#">Pusat Bantuan</a>
+                <a href="#">Syarat & Ketentuan</a>
+                <a href="#">Kebijakan Privasi</a>
+                <a href="#">Hubungi Support</a>
+            </div>
+
+            <div class="footer-links-column">
+                <h4>Location</h4>
+                <p class="address-text">Jl. Kaliurang KM 5, Sleman, Yogyakarta, Indonesia</p>
+                <!-- Area Simulasi Peta Minimap -->
+                <div class="minimap-placeholder">
+                    <i class="fas fa-map-marked-alt"></i> Lihat Peta
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

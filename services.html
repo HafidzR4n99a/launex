@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - LaunEx</title>
+    <!-- Hubungkan ke CSS Utama -->
+    <link rel="stylesheet" href="launex_style.css">
+    <!-- FontAwesome untuk ikon modern -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="dashboard-page-body">
+
+    <div class="dashboard-layout">
+        
+        <!-- ==========================================
+           1. SIDEBAR NAVIGASI (KONSISTEN & TETAP)
+           ========================================== -->
+        <aside class="sidebar-panel">
+            <div class="sidebar-brand">LaunEx</div>
+            
+            <div class="user-profile-summary">
+                <!-- Area Foto Profil dengan Masking & Input File -->
+                <div class="avatar-wrapper" style="position: relative; cursor: pointer;">
+                    <img src="asset/angela.jpg" alt="Profile" id="user-avatar-img" class="user-avatar-img" style="width: 45px; height: 45px; border-radius: 50%; object-fit: cover; background-color: #cbd5e1;">
+                    <input type="file" id="avatar-upload" accept="image/*" style="display: none;">
+                </div>
+                <div class="user-meta">
+                    <span class="user-name" id="sidebar-name">Angela</span>
+                    <span class="user-status">Premium Member</span>
+                </div>
+            </div>
+
+          <nav class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item"><i class="fas fa-th-large"></i> DASHBOARD</a>
+                <a href="services.html" class="menu-item active"><i class="fas fa-soap"></i> SERVICES</a>
+                <a href="order_tracking.html" class="menu-item"><i class="fas fa-history"></i> ORDER HISTORY</a>
+                <a href="notifications.html" class="menu-item"><i class="fas fa-bell"></i> NOTIFICATIONS</a>
+                <a href="reviews.html" class="menu-item"><i class="fas fa-star"></i> REVIEWS</a>
+                <a href="profile.html" class="menu-item"><i class="fas fa-user"></i> PROFILE</a>
+            </nav>  
+
+            <div class="sidebar-footer">
+                <button class="btn-new-order"><i class="fas fa-plus"></i> NEW ORDER</button>
+                <a href="help_center.html" class="help-link"><i class="far fa-question-circle"></i> HELP CENTER</a>
+                <a href="home.html" id="logout-btn" class="logout-link"><i class="fas fa-sign-out-alt"></i> LOGOUT</a>
+            </div>
+        </aside>
+
+        <!-- ==========================================
+           2. AREA KONTEN UTAMA (PILIH LAYANAN)
+           ========================================== -->
+        <main class="main-content-panel">
+            
+            <!-- Top Bar Header dengan Kolom Pencarian & Keranjang -->
+            <header class="content-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
+                <div class="welcome-heading">
+                    <h1 style="font-size: 22px; font-weight: 800; color: #1e293b; margin-bottom: 4px;">Pilih Layanan</h1>
+                    <p style="font-size: 13px; color: #64748b;">Kualitas kebersihan profesional untuk setiap jenis pakaian Anda.</p>
+                </div>
+                
+                <div class="search-cart-wrapper" style="display: flex; align-items: center; gap: 15px;">
+                    <div class="search-bar-container" style="position: relative; background-color: #f1f5f9; border-radius: 20px; padding: 6px 15px; display: flex; align-items: center; width: 220px;">
+                        <i class="fas fa-search" style="color: #94a3b8; font-size: 13px; margin-right: 8px;"></i>
+                        <input type="text" placeholder="Cari layanan..." style="border: none; background: transparent; outline: none; font-size: 12px; width: 100%; color: #334155;">
+                    </div>
+                    <div class="cart-icon-badge" style="position: relative; cursor: pointer;">
+                        <i class="fas fa-shopping-basket" style="font-size: 20px; color: #334155;"></i>
+                        <span style="position: absolute; top: -5px; right: -8px; background-color: #ef4444; color: white; font-size: 9px; font-weight: bold; border-radius: 50%; padding: 2px 5px;">2</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Menu Kategori / Tabs Kategori Filter -->
+            <section class="category-filter-tabs" style="display: flex; gap: 12px; margin-bottom: 30px;">
+                <button class="tab-btn active" style="background-color: #0082a6; color: white; border: none; padding: 8px 18px; border-radius: 15px; font-size: 11px; font-weight: 700; cursor: pointer; text-transform: uppercase;">Semua</button>
+                <button class="tab-btn" style="background-color: #e2e8f0; color: #475569; border: none; padding: 8px 18px; border-radius: 15px; font-size: 11px; font-weight: 700; cursor: pointer; text-transform: uppercase;">Laundry Kiloan</button>
+                <button class="tab-btn" style="background-color: #e2e8f0; color: #475569; border: none; padding: 8px 18px; border-radius: 15px; font-size: 11px; font-weight: 700; cursor: pointer; text-transform: uppercase;">Satuan Eksklusif</button>
+                <button class="tab-btn" style="background-color: #e2e8f0; color: #475569; border: none; padding: 8px 18px; border-radius: 15px; font-size: 11px; font-weight: 700; cursor: pointer; text-transform: uppercase;">Express</button>
+            </section>
+
+            <!-- Grid Kartu Layanan (3 Kolom) -->
+            <section class="services-cards-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 40px;">
+                
+                <!-- Layanan 1: Cuci Kering -->
+                <div class="service-item-card" style="background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
+                    <div>
+                        <div class="service-icon-box" style="background-color: #f0f9ff; width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
+                            <i class="fas fa-tint" style="color: #00bef1; font-size: 18px;"></i>
+                        </div>
+                        <h3 style="font-size: 16px; font-weight: 700; color: #1e293b; margin-bottom: 8px;">Cuci Kering</h3>
+                        <p style="font-size: 12px; color: #64748b; line-height: 1.5; margin-bottom: 20px;">Pembersihan mendalam dengan detergen ramah lingkungan, hasil bersih maksimal tanpa proses setrika.</p>
+                    </div>
+                    <div class="card-footer-action" style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 14px;">
+                        <span style="font-size: 13px; color: #0082a6; font-weight: 800;">Rp 6.000 <span style="font-size: 11px; color: #64748b; font-weight: 400;">/kg</span></span>
+                        <button style="background-color: #00bef1; color: white; border: none; padding: 6px 20px; border-radius: 6px; font-size: 11px; font-weight: 700; cursor: pointer;">PILIH</button>
+                    </div>
+                </div>
+
+                <!-- Layanan 2: Setrika Saja -->
+                <div class="service-item-card" style="background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
+                    <div>
+                        <div class="service-icon-box" style="background-color: #f0f9ff; width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
+                            <i class="fas fa-bolt" style="color: #00bef1; font-size: 16px;"></i>
+                        </div>
+                        <h3 style="font-size: 16px; font-weight: 700; color: #1e293b; margin-bottom: 8px;">Setrika Saja</h3>
+                        <p style="font-size: 12px; color: #64748b; line-height: 1.5; margin-bottom: 20px;">Layanan setrika uap profesional. Pakaian rapi, bebas kerut, dan harum seketika tanpa perlu dicuci.</p>
+                    </div>
+                    <div class="card-footer-action" style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 14px;">
+                        <span style="font-size: 13px; color: #0082a6; font-weight: 800;">Rp 5.000 <span style="font-size: 11px; color: #64748b; font-weight: 400;">/kg</span></span>
+                        <button style="background-color: #00bef1; color: white; border: none; padding: 6px 20px; border-radius: 6px; font-size: 11px; font-weight: 700; cursor: pointer;">PILIH</button>
+                    </div>
+                </div>
+
+                <!-- Layanan 3: Cuci + Setrika (TERPOPULER) -->
+                <div class="service-item-card" style="background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; justify-content: space-between; position: relative; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
+                    <span class="popular-badge" style="position: absolute; top: 12px; right: 12px; background-color: #00bef1; color: white; font-size: 8px; font-weight: 800; padding: 3px 8px; border-radius: 4px; letter-spacing: 0.5px;">TERPOPULER</span>
+                    <div>
+                        <div class="service-icon-box" style="background-color: #00bef1; width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
+                            <i class="fas fa-tshirt" style="color: white; font-size: 16px;"></i>
+                        </div>
+                        <h3 style="font-size: 16px; font-weight: 700; color: #1e293b; margin-bottom: 8px;">Cuci + Setrika</h3>
+                        <p style="font-size: 12px; color: #64748b; line-height: 1.5; margin-bottom: 20px;">Paket lengkap paling praktis. Laundry bersih total dan rapi sempurna, siap langsung masuk lemari.</p>
+                    </div>
+                    <div class="card-footer-action" style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 14px;">
+                        <span style="font-size: 13px; color: #0082a6; font-weight: 800;">Rp 9.000 <span style="font-size: 11px; color: #64748b; font-weight: 400;">/kg</span></span>
+                        <!-- Tombol dibungkus tag <a> langsung melempar ke packages.html -->
+                        <a href="packages.html" style="text-decoration: none;">
+                            <button style="background-color: #0082a6; color: white; border: none; padding: 6px 20px; border-radius: 6px; font-size: 11px; font-weight: 700; cursor: pointer;">PILIH</button>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Layanan 4: Express (6 Jam) -->
+                <div class="service-item-card" style="background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
+                    <div>
+                        <div class="service-icon-box" style="background-color: #fff1f2; width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
+                            <i class="fas fa-bolt" style="color: #f43f5e; font-size: 16px;"></i>
+                        </div>
+                        <h3 style="font-size: 16px; font-weight: 700; color: #1e293b; margin-bottom: 8px;">Express (6 Jam)</h3>
+                        <p style="font-size: 12px; color: #64748b; line-height: 1.5; margin-bottom: 20px;">Kebutuhan mendesak? Selesai dalam 6 jam saja. Tersedia untuk paket Cuci Kering maupun Setrika.</p>
+                    </div>
+                    <div class="card-footer-action" style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 14px;">
+                        <span style="font-size: 13px; color: #0082a6; font-weight: 800;">Rp 15.000 <span style="font-size: 11px; color: #64748b; font-weight: 400;">/kg</span></span>
+                        <button style="background-color: #00bef1; color: white; border: none; padding: 6px 20px; border-radius: 6px; font-size: 11px; font-weight: 700; cursor: pointer;">PILIH</button>
+                    </div>
+                </div>
+
+                <!-- Layanan 5: Bedding & Linen -->
+                <div class="service-item-card" style="background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
+                    <div>
+                        <div class="service-icon-box" style="background-color: #f0f9ff; width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
+                            <i class="fas fa-bed" style="color: #00bef1; font-size: 16px;"></i>
+                        </div>
+                        <h3 style="font-size: 16px; font-weight: 700; color: #1e293b; margin-bottom: 8px;">Bedding & Linen</h3>
+                        <p style="font-size: 12px; color: #64748b; line-height: 1.5; margin-bottom: 20px;">Perawatan khusus untuk sprei, bedcover, selimut, dan gordyn agar tetap lembut dan bebas tungau.</p>
+                    </div>
+                    <div class="card-footer-action" style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 14px;">
+                        <span style="font-size: 13px; color: #0082a6; font-weight: 800;">Rp 25.000 <span style="font-size: 11px; color: #64748b; font-weight: 400;">/item</span></span>
+                        <button style="background-color: #00bef1; color: white; border: none; padding: 6px 20px; border-radius: 6px; font-size: 11px; font-weight: 700; cursor: pointer;">PILIH</button>
+                    </div>
+                </div>
+
+                <!-- Layanan 6: Shoes & Bag -->
+                <div class="service-item-card" style="background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
+                    <div>
+                        <div class="service-icon-box" style="background-color: #f0f9ff; width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
+                            <i class="fas fa-cog" style="color: #00bef1; font-size: 16px;"></i>
+                        </div>
+                        <h3 style="font-size: 16px; font-weight: 700; color: #1e293b; margin-bottom: 8px;">Shoes & Bag</h3>
+                        <p style="font-size: 12px; color: #64748b; line-height: 1.5; margin-bottom: 20px;">Deep cleaning untuk koleksi sepatu dan tas kesayangan Anda menggunakan sabun khusus premium.</p>
+                    </div>
+                    <div class="card-footer-action" style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f1f5f9; padding-top: 14px;">
+                        <span style="font-size: 13px; color: #0082a6; font-weight: 800;">Rp 35.000 <span style="font-size: 11px; color: #64748b; font-weight: 400;">/psg</span></span>
+                        <button style="background-color: #00bef1; color: white; border: none; padding: 6px 20px; border-radius: 6px; font-size: 11px; font-weight: 700; cursor: pointer;">PILIH</button>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- ==========================================
+               3. BANNER PROMO LANGGANAN HEMAT 30%
+               ========================================== -->
+            <section class="subscription-promo-banner" style="background-color: #1e293b; border-radius: 16px; padding: 40px; color: white; display: flex; justify-content: space-between; align-items: center; margin-bottom: 50px; position: relative; overflow: hidden;">
+                <div class="banner-content-left" style="max-width: 55%; z-index: 2;">
+                    <span style="font-size: 11px; font-weight: 800; color: #38bdf8; letter-spacing: 1px; text-transform: uppercase;">PROMO KHUSUS</span>
+                    <h2 style="font-size: 28px; font-weight: 800; margin: 8px 0 12px 0; line-height: 1.2;">Langganan Hemat<br>Sampai 30%</h2>
+                    <p style="font-size: 13px; color: #94a3b8; line-height: 1.6; margin-bottom: 25px;">Pilih paket bulanan untuk kebutuhan rutin laundry Anda dan nikmati gratis antar-jemput ke seluruh wilayah Yogyakarta.</p>
+                    <div class="banner-action-buttons" style="display: flex; gap: 12px;">
+                        <button style="background-color: #00bef1; color: white; border: none; padding: 10px 24px; border-radius: 8px; font-size: 12px; font-weight: 700; cursor: pointer;">LIHAT PAKET</button>
+                        <button style="background-color: transparent; color: white; border: 1px solid #475569; padding: 10px 24px; border-radius: 8px; font-size: 12px; font-weight: 700; cursor: pointer;">HUBUNGI CS</button>
+                    </div>
+                </div>
+                <!-- Area Mockup Peta/Lokasi Sisi Kanan -->
+                <div class="banner-mockup-right" style="width: 240px; height: 160px; background-color: #334155; border-radius: 12px; display: flex; align-items: center; justify-content: center; z-index: 2; border: 1px solid #475569;">
+                    <i class="fas fa-map-marker-alt" style="font-size: 45px; color: #94a3b8;"></i>
+                </div>
+            </section>
+
+            <!-- ==========================================
+               4. FOOTER HALAMAN INTERNAL
+               ========================================== -->
+            <footer class="footer-section" style="border-top: 1px solid #e2e8f0; padding-top: 30px; margin-top: 40px;">
+                <div class="footer-grid-layout" style="display: grid; grid-template-columns: 2fr repeat(3, 1fr); gap: 30px;">
+                    <div>
+                        <h3 style="color: #00bef1; font-weight: 800; font-size: 18px; margin-bottom: 10px;">LaunEx</h3>
+                        <p style="font-size: 12px; color: #64748b; line-height: 1.6; margin-bottom: 10px;">© 2026 LaunEx Yogyakarta. Fresh & Dry Professionally. Solusi laundry modern untuk masyarakat urban Yogyakarta.</p>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 12px; font-weight: 700; color: #1e293b; margin-bottom: 12px;">Navigasi</h4>
+                        <a href="#" style="display: block; font-size: 11px; color: #64748b; text-decoration: none; margin-bottom: 8px;">About Us</a>
+                        <a href="#" style="display: block; font-size: 11px; color: #64748b; text-decoration: none; margin-bottom: 8px;">Layanan</a>
+                        <a href="#" style="display: block; font-size: 11px; color: #64748b; text-decoration: none; margin-bottom: 8px;">Syarat & Ketentuan</a>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 12px; font-weight: 700; color: #1e293b; margin-bottom: 12px;">Bantuan</h4>
+                        <a href="#" style="display: block; font-size: 11px; color: #64748b; text-decoration: none; margin-bottom: 8px;">Pusat Bantuan</a>
+                        <a href="#" style="display: block; font-size: 11px; color: #64748b; text-decoration: none; margin-bottom: 8px;">Privacy Policy</a>
+                        <a href="#" style="display: block; font-size: 11px; color: #64748b; text-decoration: none; margin-bottom: 8px;">Contact Support</a>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 12px; font-weight: 700; color: #1e293b; margin-bottom: 12px;">Media Sosial</h4>
+                        <div class="social-icons" style="display: flex; gap: 10px;">
+                            <a href="#" style="background-color: #f1f5f9; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #00bef1; text-decoration: none;"><i class="fab fa-twitter" style="font-size: 12px;"></i></a>
+                            <a href="#" style="background-color: #f1f5f9; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #00bef1; text-decoration: none;"><i class="fab fa-instagram" style="font-size: 12px;"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+        </main>
+    </div>
+
+    <!-- PANGGIL SCRIPT UTAMA AGAR NAMA DAN FOTO TETAP VALID & DINAMIS -->
+    <script src="launex_script.js"></script>
+</body>
+</html>

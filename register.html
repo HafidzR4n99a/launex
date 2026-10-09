@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - LaunEx</title>
+    <!-- Hubungkan ke CSS Utama -->
+    <link rel="stylesheet" href="launex_style.css">
+    <!-- FontAwesome untuk ikon input -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="register-page-body">
+
+    <div class="register-page-container">
+        <!-- HEADER BRAND LUAR KARTU -->
+        <div class="register-brand-section">
+            <h1 class="register-main-brand">LaunEx</h1>
+            <p class="register-brand-sub">Fresh & Dry Professionally in Yogyakarta.</p>
+        </div>
+
+        <!-- KARTU FORM REGISTRASI -->
+        <div class="register-card-wrapper">
+            <div class="register-card-header">
+                <h2>Buat Akun Baru</h2>
+                <p>Lengkapi detail di bawah untuk memulai perjalanan laundry Anda.</p>
+            </div>
+
+            <form id="register-form">
+                <!-- 1. Nama Lengkap -->
+                <div class="register-input-group">
+                    <label for="reg-name" class="register-label">NAMA LENGKAP</label>
+                    <div class="register-input-wrapper">
+                        <i class="far fa-user register-icon"></i>
+                        <input type="text" id="reg-name" placeholder="Nama Lengkap" required>
+                    </div>
+                </div>
+
+                <!-- 2. Email -->
+                <div class="register-input-group">
+                    <label for="reg-username" class="register-label">EMAIL</label>
+                    <div class="register-input-wrapper">
+                        <i class="far fa-envelope register-icon"></i>
+                        <!-- ID disesuaikan menjadi reg-username agar dibaca JS utama -->
+                        <input type="email" id="reg-username" placeholder="@example.com" required>
+                    </div>
+                </div>
+
+                <!-- 3. Nomor Telepon / WhatsApp -->
+                <div class="register-input-group">
+                    <label for="reg-phone" class="register-label">NOMOR TELEPON / WHATSAPP</label>
+                    <div class="register-input-wrapper">
+                        <i class="fas fa-phone register-icon"></i>
+                        <input type="tel" id="reg-phone" placeholder="0812 3456 7890" required>
+                    </div>
+                </div>
+
+                <!-- 4. Kata Sandi -->
+                <div class="register-input-group">
+                    <label for="reg-password" class="register-label">KATA SANDI</label>
+                    <div class="register-input-wrapper">
+                        <i class="fas fa-lock register-icon"></i>
+                        <input type="password" id="reg-password" placeholder="••••••••" required>
+                        <span class="reg-password-toggle">
+                            <i class="fas fa-eye" id="reg-toggle-icon"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Tombol Submit Murni (Tag <a> pembungkus sudah dihapus) -->
+                <button type="submit" class="register-submit-btn">
+                    Register <i class="fas fa-arrow-right"></i>
+                </button>
+            </form>
+
+            <!-- Tautan Kembali ke Login -->
+            <p class="login-callout-text">
+                Sudah punya akun? <a href="login.html">Login di sini.</a>
+            </p>
+        </div>
+
+        <!-- Footer Kecil Bawah -->
+        <div class="register-footer">
+            © 2026 LaunEx Yogyakarta. Fresh & Dry Professionally.
+        </div>
+    </div>
+
+    <!-- Script Fungsional Pembantu Halaman Register -->
+    <script>
+        // Fitur intip password halaman registrasi
+        const passwordInput = document.getElementById('reg-password');
+        const toggleIcon = document.getElementById('reg-toggle-icon');
+
+        if(toggleIcon && passwordInput) {
+            toggleIcon.addEventListener('click', function() {
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+                
+                if (type === 'password') {
+                    toggleIcon.classList.remove('fa-eye-slash');
+                    toggleIcon.classList.add('fa-eye');
+                } else {
+                    toggleIcon.classList.remove('fa-eye');
+                    toggleIcon.classList.add('fa-eye-slash');
+                }
+            });
+        }
+    </script>
+
+    <!-- PANGGIL JS UTAMA BIAR DATA KESIMPAN DI LOCAL STORAGE -->
+    <script src="launex_script.js"></script>
+</body>
+</html>

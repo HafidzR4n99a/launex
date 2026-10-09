@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LaunEx - Freshness, Simplified. Login</title>
+    <!-- Tautan ke file CSS -->
+    <link rel="stylesheet" href="launex_style.css">
+    <!-- Tautan ke ikon (FontAwesome atau CDN serupa untuk ikon input) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="login-page-container">
+        <!-- Kotak Login Utama (Warna Putih + Biru) -->
+        <div class="login-box-wrapper">
+            
+            <!-- SISI KIRI: HERO PANEL (Biru) -->
+            <div class="hero-panel">
+                <div class="launex-header">
+                    <span class="launex-brand">LaunEx</span>
+                </div>
+                
+                <div class="hero-content">
+                    <h1 class="hero-title">Freshness, Simplified.</h1>
+                    <p class="hero-description">
+                        Professional laundry management for Yogyakarta's dynamic lifestyle. We keep your clothes clean while you conquer the day.
+                    </p>
+                    
+                    <!-- Area Gambar Hero -->
+                    <div class="hero-image-container">
+                        <img src="asset/mesincuci login.jpg" alt="Mesin Cuci LaunEx Pintar" class="hero-washing-machine-img">
+                    </div>
+                </div>
+                
+                <div class="trust-badge">
+                    Trusted by 5,000+ Active Users in Jogja
+                </div>
+            </div> <!-- Akhir Sisi Kiri -->
+
+            <!-- SISI KANAN: FORM LOGIN (Putih) -->
+            <div class="form-panel">
+                <div class="welcome-section">
+                    <h2 class="welcome-title">Welcome Back</h2>
+                    <p class="welcome-subtitle">Please enter your details to sign in.</p>
+                </div>
+                
+                <form id="login-form">
+                    <!-- Input Email/Phone -->
+                    <div class="input-group">
+                        <label for="email-phone" class="input-label">Email or Phone Number</label>
+                        <div class="input-with-icon">
+                            <i class="far fa-user input-field-icon"></i>
+                            <input type="text" id="email-phone" name="email-phone" placeholder="name@example.com" required>
+                        </div>
+                    </div>
+                    
+                    <!-- Input Kata Sandi -->
+                    <div class="input-group">
+                        <div class="label-row">
+                            <label for="password" class="input-label">Password</label>
+                            <a href="#" class="forgot-password-link">Forgot Password?</a>
+                        </div>
+                        <div class="input-with-icon">
+                            <i class="fas fa-lock input-field-icon"></i>
+                            <input type="password" id="password" name="password" placeholder="••••••••••" required>
+                            <!-- Ikon toggler mata (menggunakan FontAwesome eye) -->
+                            <span class="password-toggle-wrapper">
+                                <i class="fas fa-eye password-toggle-icon" id="password-toggle"></i>
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <!-- Tombol Login Utama (SUDAH DI-FIX: Murni submit form tanpa pembungkus tag <a>) -->
+                    <button type="submit" class="login-submit-btn">Login to Your Account</button>
+                    
+                    <!-- Pembatas 'Or continue with' -->
+                    <div class="divider-or">
+                        <div class="divider-line"></div>
+                        <span class="divider-text">Or continue with</span>
+                        <div class="divider-line"></div>
+                    </div>
+                    
+                    <!-- Tombol Sign in with Google -->
+                    <button type="button" class="google-signin-btn">
+                        <img src="asset/google.png" alt="Google Logo" class="google-logo">
+                        Sign in with Google
+                    </button>
+                     
+                    <!-- Teks Registrasi -->
+                    <p class="register-callout">
+                        Don't have an account? <a href="register.html" class="register-now-link">Register now</a>
+                    </p>
+                </form>
+            </div> <!-- Akhir Sisi Kanan -->
+            
+        </div> <!-- Akhir Kotak Login Utama -->
+
+        <!-- Footer Bawah -->
+        <div class="page-footer">
+            © 2024 LaunEx Yogyakarta • Fresh & Dry Professionally
+        </div>
+        
+    </div> <!-- Akhir Container Halaman -->
+
+    <!-- Tautan ke file JavaScript (SUDAH DI-FIX: Menggunakan underscore sesuai file aslimu) -->
+    <script src="launex_script.js"></script>
+</body>
+</html>

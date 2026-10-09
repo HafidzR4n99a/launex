@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Center - LaunEx</title>
+    <!-- Hubungkan ke CSS Utama -->
+    <link rel="stylesheet" href="launex_style.css">
+    <!-- FontAwesome untuk ikon modern -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* CSS Khusus Accordion FAQ */
+        .faq-item {
+            background-color: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .faq-header {
+            padding: 18px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            user-select: none;
+        }
+        .faq-header h4 {
+            font-size: 13px;
+            font-weight: 800;
+            color: #1e293b;
+            margin: 0;
+        }
+        .faq-header i {
+            font-size: 12px;
+            color: #64748b;
+            transition: transform 0.3s ease;
+        }
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background-color: #f8fafc;
+        }
+        .faq-content p {
+            padding: 18px 24px;
+            margin: 0;
+            font-size: 12px;
+            color: #475569;
+            line-height: 1.6;
+            border-top: 1px solid #f1f5f9;
+        }
+        /* State Aktif */
+        .faq-item.active {
+            border-color: #00bef1;
+            box-shadow: 0 4px 6px rgba(0, 190, 241, 0.05);
+        }
+        .faq-item.active .faq-header i {
+            transform: rotate(180deg);
+            color: #00bef1;
+        }
+    </style>
+</head>
+<body class="dashboard-page-body">
+
+    <div class="dashboard-layout">
+        
+        <!-- ==========================================
+           1. SIDEBAR NAVIGASI (KONSISTEN)
+           ========================================== -->
+        <aside class="sidebar-panel">
+            <div class="sidebar-brand">LaunEx</div>
+            
+            <div class="user-profile-summary">
+                <div class="avatar-wrapper" style="position: relative; cursor: pointer;">
+                    <img src="asset/angela.jpg" alt="Profile" id="user-avatar-img" class="user-avatar-img" style="width: 45px; height: 45px; border-radius: 50%; object-fit: cover; background-color: #cbd5e1;">
+                    <input type="file" id="avatar-upload" accept="image/*" style="display: none;">
+                </div>
+                <div class="user-meta">
+                    <span class="user-name" id="sidebar-name">Angela</span>
+                    <span class="user-status">Premium Member</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item"><i class="fas fa-th-large"></i> DASHBOARD</a>
+                <a href="services.html" class="menu-item"><i class="fas fa-soap"></i> SERVICES</a>
+                <a href="order_tracking.html" class="menu-item"><i class="fas fa-history"></i> ORDER HISTORY</a>
+                <a href="notifications.html" class="menu-item"><i class="fas fa-bell"></i> NOTIFICATIONS</a>
+                <a href="reviews.html" class="menu-item"><i class="fas fa-star"></i> REVIEWS</a>
+                <a href="profile.html" class="menu-item"><i class="fas fa-user"></i> PROFILE</a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="btn-new-order"><i class="fas fa-plus"></i> NEW ORDER</button>
+                <!-- Sesuai Mockup: Help Center Berwarna Biru Aktif di Bawah -->
+                <a href="help_center.html" class="help-link active" style="background-color: #63bbf2; color: #1e293b; font-weight: 700; border-radius: 8px; padding: 12px 16px; display: block; text-decoration: none; margin-bottom: 10px;"><i class="fas fa-question-circle"></i> Help Center</a>
+                <a href="home.html" id="logout-btn" class="logout-link"><i class="fas fa-sign-out-alt"></i> LOGOUT</a>
+            </div>
+        </aside>
+
+        <!-- ==========================================
+           2. AREA KONTEN UTAMA (HELP CENTER)
+           ========================================== -->
+        <main class="main-content-panel" style="padding: 30px 40px; display: flex; flex-direction: column; min-height: 100vh; justify-content: space-between; background-color: #f8fafc;">
+            
+            <div>
+                <!-- Header Atas (Judul & Search) -->
+                <section style="display: grid; grid-template-columns: 2fr 1fr; gap: 40px; align-items: center; margin-bottom: 40px;">
+                    <div>
+                        <h1 style="font-size: 28px; font-weight: 900; color: #0082a6; margin-bottom: 8px;">Help Center</h1>
+                        <p style="font-size: 13px; color: #64748b; line-height: 1.5; max-width: 540px;">Temukan jawaban atas kendala atau pertanyaan Anda seputar layanan LaunEx Yogyakarta dengan cepat dan mudah.</p>
+                        
+                        <!-- Search Bar -->
+                        <div style="margin-top: 25px; position: relative; max-width: 480px;">
+                            <i class="fas fa-search" style="position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: #94a3b8; font-size: 14px;"></i>
+                            <input type="text" placeholder="Cari bantuan (misal: Harga kiloan, Status pesanan...)" style="width: 100%; padding: 14px 14px 14px 45px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 12px; outline: none; background-color: white; color: #334155; box-shadow: 0 2px 4px rgba(0,0,0,0.01);">
+                        </div>
+                    </div>
+                    
+                    <!-- Box Dekorasi Kanan Atas -->
+                    <div style="display: flex; justify-content: flex-end;">
+                        <div style="background-color: #e0f2fe; width: 100px; height: 100px; border-radius: 16px; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);">
+                            <i class="fas fa-question" style="font-size: 42px; color: #0082a6; opacity: 0.8;"></i>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Kategori Populer (Grid 4 Kolom) -->
+                <section style="margin-bottom: 45px;">
+                    <h3 style="font-size: 14px; font-weight: 800; color: #1e293b; margin-bottom: 20px;">Kategori Populer</h3>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;">
+                        <!-- Kategori 1: Order -->
+                        <div style="background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px; cursor: pointer; transition: transform 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+                            <div style="background-color: #e0f2fe; color: #0082a6; width: 32px; height: 32px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 14px; margin-bottom: 14px;"><i class="fas fa-shopping-basket"></i></div>
+                            <h4 style="font-size: 13px; font-weight: 800; color: #1e293b; margin-bottom: 6px;">Order</h4>
+                            <p style="font-size: 10px; color: #64748b; line-height: 1.4;">Status pesanan, durasi cuci, dan pickup & delivery.</p>
+                        </div>
+
+                        <!-- Kategori 2: Payment -->
+                        <div style="background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px; cursor: pointer; transition: transform 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+                            <div style="background-color: #e0f2fe; color: #0082a6; width: 32px; height: 32px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 14px; margin-bottom: 14px;"><i class="far fa-credit-card"></i></div>
+                            <h4 style="font-size: 13px; font-weight: 800; color: #1e293b; margin-bottom: 6px;">Payment</h4>
+                            <p style="font-size: 10px; color: #64748b; line-height: 1.4;">Metode pembayaran, promo, saldo, dan refund.</p>
+                        </div>
+
+                        <!-- Kategori 3: Service -->
+                        <div style="background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px; cursor: pointer; transition: transform 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+                            <div style="background-color: #e0f2fe; color: #0082a6; width: 32px; height: 32px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 14px; margin-bottom: 14px;"><i class="fas fa-soap"></i></div>
+                            <h4 style="font-size: 13px; font-weight: 800; color: #1e293b; margin-bottom: 6px;">Service</h4>
+                            <p style="font-size: 10px; color: #64748b; line-height: 1.4;">Jenis layanan (Kiloan/Satuan) dan jaminan kualitas.</p>
+                        </div>
+
+                        <!-- Kategori 4: Account -->
+                        <div style="background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px; cursor: pointer; transition: transform 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+                            <div style="background-color: #e0f2fe; color: #0082a6; width: 32px; height: 32px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 14px; margin-bottom: 14px;"><i class="far fa-user"></i></div>
+                            <h4 style="font-size: 13px; font-weight: 800; color: #1e293b; margin-bottom: 6px;">Account</h4>
+                            <p style="font-size: 10px; color: #64748b; line-height: 1.4;">Keamanan data, ganti profil, dan referral.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- FAQ (Pertanyaan Umum) dengan Logika Expand/Collapse Accordion -->
+                <section style="margin-bottom: 40px;">
+                    <h3 style="font-size: 14px; font-weight: 800; color: #1e293b; margin-bottom: 20px; text-align: center;">Pertanyaan Umum (FAQ)</h3>
+                    
+                    <div style="max-width: 800px; margin: 0 auto;">
+                        <!-- FAQ 1 -->
+                        <div class="faq-item">
+                            <div class="faq-header" onclick="toggleFaq(this)">
+                                <h4>Berapa lama waktu cuci di LaunEx?</h4>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-content">
+                                <p>Durasi pencucian standar (Regular) memakan waktu 2-3 hari kerja. Namun, kami juga menyediakan layanan Express yang dapat selesai dalam waktu 24 jam hingga layanan super cepat 6 jam untuk kebutuhan mendesak Anda.</p>
+                            </div>
+                        </div>
+
+                        <!-- FAQ 2 -->
+                        <div class="faq-item">
+                            <div class="faq-header" onclick="toggleFaq(this)">
+                                <h4>Bagaimana cara bayar via QRIS?</h4>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-content">
+                                <p>Pada halaman pembayaran, pilih metode QRIS. Sistem akan memunculkan kode QR GPN resmi. Anda tinggal membuka aplikasi mobile banking atau e-wallet (GoPay, OVO, ShopeePay, Dana, dll.) lalu scan kode tersebut untuk menyelesaikan transaksi secara instan.</p>
+                            </div>
+                        </div>
+
+                        <!-- FAQ 3 -->
+                        <div class="faq-item">
+                            <div class="faq-header" onclick="toggleFaq(this)">
+                                <h4>Apakah ada biaya tambahan untuk antar-jemput?</h4>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-content">
+                                <p>Layanan antar-jemput gratis khusus untuk wilayah radius tertentu dari outlet Yogyakarta. Di luar wilayah tersebut, biaya hanya berkisar antara Rp 5.000 hingga Rp 10.000 flat sesuai jarak tempuh kurir kami.</p>
+                            </div>
+                        </div>
+
+                        <!-- FAQ 4 -->
+                        <div class="faq-item">
+                            <div class="faq-header" onclick="toggleFaq(this)">
+                                <h4>Apa jaminan jika pakaian saya rusak atau hilang?</h4>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-content">
+                                <p>LaunEx menjamin setiap helai pakaian Anda melalui asuransi internal. Jika terjadi kerusakan atau kehilangan yang diakibatkan oleh kelalaian operasional kami, kami akan mengganti rugi maksimal hingga 10 kali lipat dari biaya jasa cuci pakaian tersebut.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Card Bottom Contact Support -->
+                <section style="max-width: 800px; margin: 0 auto 50px auto; background-color: #e0f2fe; border: 1px solid #bde0fe; border-radius: 12px; padding: 24px; display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <h4 style="font-size: 14px; font-weight: 800; color: #0369a1; margin-bottom: 4px;">Masih punya pertanyaan?</h4>
+                        <p style="font-size: 11px; color: #0369a1; opacity: 0.9; margin: 0;">Tim support kami siap membantu Anda 24/7.</p>
+                    </div>
+                    <button onclick="alert('Menghubungkan ke Tim Support WhatsApp...');" style="background-color: #0082a6; color: white; border: none; padding: 12px 20px; border-radius: 8px; font-size: 12px; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                        <i class="far fa-comments"></i> Contact Support
+                    </button>
+                </section>
+            </div>
+
+            <!-- Footer Bawah Halaman -->
+            <footer style="border-top: 1px solid #e2e8f0; padding-top: 25px;">
+                <div style="display: grid; grid-template-columns: 2fr repeat(3, 1fr); gap: 30px;">
+                    <div>
+                        <h3 style="color: #00bef1; font-weight: 800; font-size: 18px; margin-bottom: 10px;">LaunEx</h3>
+                        <p style="font-size: 12px; color: #64748b; line-height: 1.6;">Professional laundry services in Yogyakarta. Freshness delivered to your doorstep.</p>
+                        <p style="font-size: 11px; color: #94a3b8; margin-top: 10px;">© 2026 LaunEx Yogyakarta. Fresh & Dry Professionally.</p>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 12px; font-weight: 700; color: #1e293b; margin-bottom: 12px;">Layanan Kami</h4>
+                        <a href="#" style="display: block; font-size: 11px; color: #64748b; text-decoration: none; margin-bottom: 8px;">Cuci Kiloan</a>
+                        <a href="#" style="display: block; font-size: 11px; color: #64748b; text-decoration: none; margin-bottom: 8px;">Cuci Satuan</a>
+                        <a href="#" style="display: block; font-size: 11px; color: #64748b; text-decoration: none; margin-bottom: 8px;">Express 24 Jam</a>
+                        <a href="#" style="display: block; font-size: 11px; color: #64748b; text-decoration: none; margin-bottom: 8px;">Setrika Saja</a>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 12px; font-weight: 700; color: #1e293b; margin-bottom: 12px;">Pusat Bantuan</h4>
+                        <a href="#" style="display: block; font-size: 11px; color: #64748b; text-decoration: none; margin-bottom: 8px;">About Us</a>
+                        <a href="#" style="display: block; font-size: 11px; color: #64748b; text-decoration: none; margin-bottom: 8px;">Terms of Service</a>
+                        <a href="#" style="display: block; font-size: 11px; color: #64748b; text-decoration: none; margin-bottom: 8px;">Privacy Policy</a>
+                        <a href="#" style="display: block; font-size: 11px; color: #64748b; text-decoration: none; margin-bottom: 8px;">Contact Support</a>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 12px; font-weight: 700; color: #1e293b; margin-bottom: 12px;">Hubungi Kami</h4>
+                        <p style="font-size: 11px; color: #64748b; line-height: 1.5; margin-bottom: 8px;"><i class="fas fa-map-marker-alt" style="font-size: 9px; margin-right: 4px;"></i> Jl. Kaliurang KM 5, Yogyakarta</p>
+                        <p style="font-size: 11px; color: #64748b; line-height: 1.5; margin-bottom: 8px;"><i class="fas fa-phone-alt" style="font-size: 9px; margin-right: 4px;"></i> +62 812-3456-7890</p>
+                        <div style="display: flex; gap: 10px; font-size: 14px; margin-top: 10px; color: #64748b;">
+                            <i class="fab fa-instagram" style="cursor: pointer;"></i>
+                            <i class="fab fa-whatsapp" style="cursor: pointer;"></i>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+
+        </main>
+    </div>
+
+    <!-- Script fungsional untuk expand/collapse FAQ -->
+    <script>
+        function toggleFaq(header) {
+            const item = header.parentElement;
+            const content = header.nextElementSibling;
+            
+            // Tutup faq lainnya yang sedang terbuka (opsional, biar rapi)
+            document.querySelectorAll('.faq-item').forEach(otherItem => {
+                if (otherItem !== item && otherItem.classList.contains('active')) {
+                    otherItem.classList.remove('active');
+                    otherItem.querySelector('.faq-content').style.maxHeight = '0';
+                }
+            });
+
+            // Toggle item saat ini
+            if (item.classList.contains('active')) {
+                item.classList.remove('active');
+                content.style.maxHeight = '0';
+            } else {
+                item.classList.add('active');
+                content.style.maxHeight = content.scrollHeight + 'px';
+            }
+        }
+    </script>
+    <script src="launex_script.js"></script>
+</body>
+</html>

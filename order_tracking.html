@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Tracking - LaunEx</title>
+    <!-- Hubungkan ke CSS Utama -->
+    <link rel="stylesheet" href="launex_style.css">
+    <!-- FontAwesome untuk ikon modern -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="dashboard-page-body">
+
+    <div class="dashboard-layout">
+        
+        <!-- ==========================================
+           1. SIDEBAR NAVIGASI (KONSISTEN & TETAP)
+           ========================================== -->
+        <aside class="sidebar-panel">
+            <div class="sidebar-brand">LaunEx</div>
+            
+            <div class="user-profile-summary">
+                <div class="avatar-wrapper" style="position: relative; cursor: pointer;">
+                    <img src="asset/angela.jpg" alt="Profile" id="user-avatar-img" class="user-avatar-img" style="width: 45px; height: 45px; border-radius: 50%; object-fit: cover; background-color: #cbd5e1;">
+                    <input type="file" id="avatar-upload" accept="image/*" style="display: none;">
+                </div>
+                <div class="user-meta">
+                    <span class="user-name" id="sidebar-name">Angela</span>
+                    <span class="user-status">Premium Member</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item"><i class="fas fa-th-large"></i> DASHBOARD</a>
+                <a href="services.html" class="menu-item"><i class="fas fa-soap"></i> SERVICES</a>
+                <a href="order_tracking.html" class="menu-item active"><i class="fas fa-history"></i> ORDER HISTORY</a>
+                <a href="notifications.html" class="menu-item"><i class="fas fa-bell"></i> NOTIFICATIONS</a>
+                <a href="reviews.html" class="menu-item"><i class="fas fa-star"></i> REVIEWS</a>
+                <a href="profile.html" class="menu-item"><i class="fas fa-user"></i> PROFILE</a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="btn-new-order"><i class="fas fa-plus"></i> NEW ORDER</button>
+                <a href="help_center.html" class="help-link"><i class="far fa-question-circle"></i> HELP CENTER</a>
+                <a href="home.html" id="logout-btn" class="logout-link"><i class="fas fa-sign-out-alt"></i> LOGOUT</a>
+            </div>
+        </aside>
+
+        <!-- ==========================================
+           2. AREA KONTEN UTAMA (ORDER TRACKING)
+           ========================================== -->
+        <main class="main-content-panel" style="padding: 30px 40px;">
+            
+            <!-- Header Halaman Pelacakan & Tombol Aksi -->
+            <header style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 30px;">
+                <div>
+                    <h1 style="font-size: 22px; font-weight: 800; color: #1e293b; margin-bottom: 6px;">Order Tracking</h1>
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <span style="font-size: 10px; font-weight: 800; background-color: #e0f2fe; color: #0369a1; padding: 3px 8px; border-radius: 4px; letter-spacing: 0.5px;">#LX-20240905-01</span>
+                        <span style="font-size: 11px; color: #64748b;">Placed on Sep 05, 2024 • 08:30 AM</span>
+                    </div>
+                </div>
+                
+                <div style="display: flex; gap: 10px;">
+                    <!-- LANGSUNG DI-FIX KE WRITE_REVIEW.HTML -->
+                    <a href="write_review.html" style="text-decoration: none;">
+                        <button style="background-color: #0082a6; color: white; border: none; padding: 10px 18px; border-radius: 6px; font-size: 12px; font-weight: 700; cursor: pointer;">
+                            <i class="fas fa-check-circle"></i> Pesanan Selesai
+                        </button>
+                    </a>
+                    <button style="background-color: white; border: 1px solid #cbd5e1; color: #475569; padding: 10px 18px; border-radius: 6px; font-size: 12px; font-weight: 700; cursor: pointer;"><i class="far fa-question-circle"></i> Bantuan</button>
+                    <button style="background-color: #0c4a6e; color: white; border: none; padding: 10px 18px; border-radius: 6px; font-size: 12px; font-weight: 700; cursor: pointer;"><i class="fas fa-phone-alt"></i> Hubungi Kurir</button>
+                </div>
+            </header>
+
+            <!-- 2a. Komponen Stepper Progress (Horisontal) -->
+            <section style="background: white; border: 1px solid #e2e8f0; border-radius: 16px; padding: 30px 20px; margin-bottom: 30px; box-shadow: 0 4px 6px rgba(0,0,0,0.01);">
+                <div style="display: flex; justify-content: space-between; align-items: center; position: relative; max-width: 90%; margin: 0 auto; padding: 10px 0;">
+                    
+                    <div style="position: absolute; left: 0; right: 0; top: 50%; height: 2px; background: #e2e8f0; z-index: 1; transform: translateY(-50%);"></div>
+                    <div style="position: absolute; left: 0; width: 50%; top: 50%; height: 2px; background: #00bef1; z-index: 1; transform: translateY(-50%);"></div>
+
+                    <!-- Step 1 -->
+                    <div style="text-align: center; z-index: 2; background: white; padding: 0 10px;">
+                        <div style="width: 32px; height: 32px; border-radius: 50%; background-color: #00bef1; color: white; display: flex; align-items: center; justify-content: center; font-size: 12px; margin: 0 auto 8px auto; box-shadow: 0 0 0 4px #e0f2fe;"><i class="fas fa-check"></i></div>
+                        <span style="font-size: 11px; font-weight: 700; color: #1e293b; display: block;">Penjemputan</span>
+                        <span style="font-size: 9px; color: #94a3b8; display: block; margin-top: 2px;">10:15 AM</span>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div style="text-align: center; z-index: 2; background: white; padding: 0 10px;">
+                        <div style="width: 32px; height: 32px; border-radius: 50%; background-color: #00bef1; color: white; display: flex; align-items: center; justify-content: center; font-size: 12px; margin: 0 auto 8px auto; box-shadow: 0 0 0 4px #e0f2fe;"><i class="fas fa-check"></i></div>
+                        <span style="font-size: 11px; font-weight: 700; color: #1e293b; display: block;">Sedang Dicuci</span>
+                        <span style="font-size: 9px; color: #94a3b8; display: block; margin-top: 2px;">12:45 PM</span>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div style="text-align: center; z-index: 2; background: white; padding: 0 10px;">
+                        <div style="width: 32px; height: 32px; border-radius: 50%; background-color: #0082a6; color: white; display: flex; align-items: center; justify-content: center; font-size: 12px; margin: 0 auto 8px auto; box-shadow: 0 0 0 4px #e0f7ff;"><i class="fas fa-cog" style="animation: spin 4s linear infinite;"></i></div>
+                        <span style="font-size: 11px; font-weight: 800; color: #0082a6; display: block;">Pengeringan</span>
+                        <span style="font-size: 9px; color: #0082a6; font-weight: 600; display: block; margin-top: 2px;">In Progress</span>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div style="text-align: center; z-index: 2; background: white; padding: 0 10px;">
+                        <div style="width: 32px; height: 32px; border-radius: 50%; background-color: #f1f5f9; color: #94a3b8; border: 1px solid #cbd5e1; display: flex; align-items: center; justify-content: center; font-size: 12px; margin: 0 auto 8px auto;"><i class="fas fa-tshirt"></i></div>
+                        <span style="font-size: 11px; font-weight: 600; color: #64748b; display: block;">Setrika</span>
+                        <span style="font-size: 9px; color: #94a3b8; display: block; margin-top: 2px;">-</span>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div style="text-align: center; z-index: 2; background: white; padding: 0 10px;">
+                        <div style="width: 32px; height: 32px; border-radius: 50%; background-color: #f1f5f9; color: #94a3b8; border: 1px solid #cbd5e1; display: flex; align-items: center; justify-content: center; font-size: 12px; margin: 0 auto 8px auto;"><i class="fas fa-shipping-fast"></i></div>
+                        <span style="font-size: 11px; font-weight: 600; color: #64748b; display: block;">Pengiriman</span>
+                        <span style="font-size: 9px; color: #94a3b8; display: block; margin-top: 2px;">-</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Layout Konten Bawah -->
+            <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 30px; align-items: start;">
+                
+                <!-- KIRI -->
+                <div style="display: flex; flex-direction: column; gap: 24px;">
+                    <div style="background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 24px;">
+                        <h3 style="font-size: 15px; font-weight: 800; color: #1e293b; margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
+                            <i class="fas fa-soap" style="color: #00bef1;"></i> Service Breakdown
+                        </h3>
+                        
+                        <div style="background-color: #f8fafc; border-radius: 8px; padding: 14px 16px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border: 1px solid #f1f5f9;">
+                            <div style="display: flex; gap: 15px; align-items: center;">
+                                <div style="background-color: #e0f2fe; color: #0369a1; width: 36px; height: 36px; border-radius: 6px; display: flex; align-items: center; justify-content: center;"><i class="fas fa-tshirt"></i></div>
+                                <div>
+                                    <h4 style="font-size: 12px; font-weight: 800; color: #1e293b; margin-bottom: 2px;">Cuci Kering Setrika - Paket Reguler</h4>
+                                    <span style="font-size: 10px; color: #64748b;">Fragrance: Premium Tropis</span>
+                                </div>
+                            </div>
+                            <div style="text-align: right;">
+                                <span style="font-size: 12px; font-weight: 800; color: #1e293b; display: block;">4.5 kg</span>
+                                <span style="font-size: 10px; color: #64748b;">Rp 8.000 / kg</span>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; flex-direction: column; gap: 10px; font-size: 12px; color: #475569; border-top: 1px solid #f1f5f9; padding-top: 15px;">
+                            <div style="display: flex; justify-content: space-between;">
+                                <span>Subtotal</span>
+                                <span style="font-weight: 700; color: #1e293b;">Rp 36.000</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between;">
+                                <span>Pickup & Delivery Fee</span>
+                                <span style="font-weight: 700; color: #1e293b;">Rp 5.000</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; color: #22c55e;">
+                                <span>Promo (FRESHSTART)</span>
+                                <span style="font-weight: 700;">-Rp 10.000</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; font-size: 14px; font-weight: 800; color: #1e293b; margin-top: 5px;">
+                                <span>Total Price</span>
+                                <span style="font-size: 18px; color: #0082a6;">Rp 31.000</span>
+                            </div>
+                            <!-- Ringkasan Total Harga Peta Alur Realistis -->
+                            <div style="display: flex; flex-direction: column; gap: 10px; font-size: 12px; color: #475569; border-top: 1px solid #f1f5f9; padding-top: 15px; margin-bottom: 20px;">
+                                <div style="display: flex; justify-content: space-between;">
+                                    <span>Subtotal</span>
+                                    <span style="font-weight: 700; color: #1e293b;">Rp 36.000</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between;">
+                                    <span>Pickup & Delivery Fee</span>
+                                    <span style="font-weight: 700; color: #1e293b;">Rp 5.000</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; color: #22c55e;">
+                                    <span>Promo (FRESHSTART)</span>
+                                    <span style="font-weight: 700;">-Rp 10.000</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; align-items: center; font-size: 14px; font-weight: 800; color: #1e293b; margin-top: 5px;">
+                                    <span>Total Price</span>
+                                    <span style="font-size: 18px; color: #0082a6;">Rp 31.000</span>
+                                </div>
+                            </div>
+
+                            <!-- ==========================================
+                               KARTU TAMBAHAN: COMPLETED ORDERS (PREVIOUS)
+                               ========================================== -->
+                            <div style="border-top: 1px dashed #cbd5e1; padding-top: 20px; margin-top: 15px;">
+                                <h4 style="font-size: 11px; font-weight: 800; color: #64748b; margin-bottom: 12px; letter-spacing: 0.5px; text-transform: uppercase; display: flex; align-items: center; gap: 6px;">
+                                    <i class="fas fa-history" style="color: #64748b; font-size: 10px;"></i> Completed Orders (Previous)
+                                </h4>
+                                
+                                <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px 14px; display: flex; justify-content: space-between; align-items: center;">
+                                    <div style="display: flex; align-items: center; gap: 12px;">
+                                        <div style="background-color: #f0fdf4; color: #15803d; width: 30px; height: 30px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 11px;">
+                                            <i class="fas fa-check-double"></i>
+                                        </div>
+                                        <div>
+                                            <div style="display: flex; align-items: center; gap: 6px;">
+                                                <span style="font-size: 11px; font-weight: 800; color: #1e293b;">Bed Cover & Sprei</span>
+                                                <span style="font-size: 8px; font-weight: 800; background-color: #dcfce7; color: #15803d; padding: 1px 5px; border-radius: 4px;">DONE</span>
+                                            </div>
+                                            <span style="font-size: 9px; color: #94a3b8;">Order #LX-20240904 • Completed on Sep 04, 2024</span>
+                                        </div>
+                                    </div>
+                                    <span style="font-size: 12px; font-weight: 800; color: #475569;">Rp 45.000</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Address & Notes -->
+                    <div style="background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 24px;">
+                        <h3 style="font-size: 15px; font-weight: 800; color: #1e293b; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+                            <i class="fas fa-map-marker-alt" style="color: #00bef1;"></i> Address & Notes
+                        </h3>
+                        <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 20px; align-items: flex-start;">
+                            <div>
+                                <h4 style="font-size: 12px; font-weight: 800; color: #1e293b; margin-bottom: 4px;">Jl. Kaliurang KM 5.5</h4>
+                                <p style="font-size: 11px; color: #64748b; line-height: 1.5;">Gg. Pandega Sakti No. 12, Depok, Sleman, Yogyakarta 55281<br><span style="color: #94a3b8;">(Near the blue laundry building)</span></p>
+                            </div>
+                            <div style="background-color: #f0f7ff; border-left: 3px solid #0082a6; padding: 12px 15px; border-radius: 0 8px 8px 0;">
+                                <span style="font-size: 9px; font-weight: 800; color: #0082a6; display: block; margin-bottom: 4px; text-transform: uppercase;">Notes for Courier</span>
+                                <p style="font-size: 11px; color: #334155; font-style: italic; line-height: 1.4; margin: 0;">"Please pick up before 10 AM. Don't mix whites with colored clothes. Thank you!"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- KANAN: TIMELINE -->
+                <div style="background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 24px; box-shadow: 0 4px 6px rgba(0,0,0,0.01);">
+                    <h3 style="font-size: 15px; font-weight: 800; color: #1e293b; margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
+                        <i class="fas fa-history" style="color: #00bef1;"></i> Activity Log
+                    </h3>
+                    
+                    <div style="position: relative; padding-left: 20px; display: flex; flex-direction: column; gap: 24px;">
+                        <div style="position: absolute; left: 4px; top: 5px; bottom: 5px; width: 2px; background-color: #e2e8f0;"></div>
+
+                        <div style="position: relative;">
+                            <div style="position: absolute; left: -20px; top: 3px; width: 10px; height: 10px; border-radius: 50%; background-color: #00bef1; box-shadow: 0 0 0 3px #e0f2fe;"></div>
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2px;">
+                                <h4 style="font-size: 12px; font-weight: 800; color: #1e293b;">Pengeringan Dimulai</h4>
+                                <span style="font-size: 9px; color: #94a3b8; font-weight: 600;">14:30</span>
+                            </div>
+                            <p style="font-size: 10px; color: #64748b; line-height: 1.4; margin: 0;">Order entered drying chamber #B4.</p>
+                        </div>
+
+                        <div style="position: relative;">
+                            <div style="position: absolute; left: -19px; top: 4px; width: 8px; height: 8px; border-radius: 50%; background-color: #cbd5e1;"></div>
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2px;">
+                                <h4 style="font-size: 12px; font-weight: 700; color: #475569;">Proses Cuci Selesai</h4>
+                                <span style="font-size: 9px; color: #94a3b8;">12:45</span>
+                            </div>
+                            <p style="font-size: 10px; color: #64748b; line-height: 1.4; margin: 0;">Clothes have been washed and spun.</p>
+                        </div>
+
+                        <div style="position: relative;">
+                            <div style="position: absolute; left: -19px; top: 4px; width: 8px; height: 8px; border-radius: 50%; background-color: #cbd5e1;"></div>
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2px;">
+                                <h4 style="font-size: 12px; font-weight: 700; color: #475569;">Dicuci</h4>
+                                <span style="font-size: 9px; color: #94a3b8;">11:00</span>
+                            </div>
+                            <p style="font-size: 10px; color: #64748b; line-height: 1.4; margin: 0;">Standard wash with eco-friendly detergent.</p>
+                        </div>
+
+                        <div style="position: relative;">
+                            <div style="position: absolute; left: -19px; top: 4px; width: 8px; height: 8px; border-radius: 50%; background-color: #cbd5e1;"></div>
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2px;">
+                                <h4 style="font-size: 12px; font-weight: 700; color: #475569;">Penjemputan Selesai</h4>
+                                <span style="font-size: 9px; color: #94a3b8;">10:15</span>
+                            </div>
+                            <p style="font-size: 10px; color: #64748b; line-height: 1.4; margin: 0;">Courier Budi collected the items.</p>
+                        </div>
+
+                        <div style="position: relative;">
+                            <div style="position: absolute; left: -19px; top: 4px; width: 8px; height: 8px; border-radius: 50%; background-color: #cbd5e1;"></div>
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2px;">
+                                <h4 style="font-size: 12px; font-weight: 700; color: #475569;">Order Diterima</h4>
+                                <span style="font-size: 9px; color: #94a3b8;">08:30</span>
+                            </div>
+                            <p style="font-size: 10px; color: #64748b; line-height: 1.4; margin: 0;">Awaiting courier assignment.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer style="border-top: 1px solid #e2e8f0; padding-top: 20px; margin-top: 50px; display: flex; justify-content: space-between; font-size: 11px; color: #64748b;">
+                <span>© 2026 LaunEx Yogyakarta. Fresh & Dry Professionally.</span>
+                <div style="display: flex; gap: 15px;">
+                    <a href="#" style="color: #64748b; text-decoration: none;">Privacy Policy</a>
+                    <a href="#" style="color: #64748b; text-decoration: none;">Contact Support</a>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <script src="launex_script.js"></script>
+</body>
+</html>

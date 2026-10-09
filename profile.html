@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - LaunEx</title>
+    <!-- Hubungkan ke CSS Utama -->
+    <link rel="stylesheet" href="launex_style.css">
+    <!-- FontAwesome untuk ikon modern -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 40px;
+            height: 22px;
+        }
+        .switch input { 
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            inset: 0;
+            background-color: #cbd5e1;
+            transition: .3s;
+            border-radius: 34px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .3s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: #0082a6;
+        }
+        input:checked + .slider:before {
+            transform: translateX(18px);
+        }
+    </style>
+</head>
+<body class="dashboard-page-body">
+
+    <div class="dashboard-layout">
+        
+        <!-- ==========================================
+           1. SIDEBAR NAVIGASI (TAB PROFILE AKTIF)
+           ========================================== -->
+        <aside class="sidebar-panel">
+            <div class="sidebar-brand">LaunEx</div>
+            
+            <div class="user-profile-summary">
+                <div class="avatar-wrapper" style="position: relative; cursor: pointer;">
+                    <img src="asset/angela.jpg" alt="Profile" id="user-avatar-img" class="user-avatar-img" style="width: 45px; height: 45px; border-radius: 50%; object-fit: cover; background-color: #cbd5e1;">
+                    <input type="file" id="avatar-upload" accept="image/*" style="display: none;">
+                </div>
+                <div class="user-meta">
+                    <span class="user-name" id="sidebar-name">Angela</span>
+                    <span class="user-status">Premium Member</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item"><i class="fas fa-th-large"></i> DASHBOARD</a>
+                <a href="services.html" class="menu-item"><i class="fas fa-soap"></i> SERVICES</a>
+                <a href="order_tracking.html" class="menu-item"><i class="fas fa-history"></i> ORDER HISTORY</a>
+                <a href="notifications.html" class="menu-item"><i class="fas fa-bell"></i> NOTIFICATIONS</a>
+                <a href="reviews.html" class="menu-item"><i class="fas fa-star"></i> REVIEWS</a>
+                <a href="profile.html" class="menu-item active"><i class="fas fa-user"></i> PROFILE</a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="btn-new-order"><i class="fas fa-plus"></i> NEW ORDER</button>
+                <a href="help_center.html" class="help-link"><i class="far fa-question-circle"></i> HELP CENTER</a>
+                <a href="home.html" id="logout-btn" class="logout-link"><i class="fas fa-sign-out-alt"></i> LOGOUT</a>
+            </div>
+        </aside>
+
+        <!-- ==========================================
+           2. AREA KONTEN UTAMA (PROFILE SETTINGS)
+           ========================================== -->
+        <main class="main-content-panel" style="padding: 30px 40px; display: flex; flex-direction: column; min-height: 100vh; justify-content: space-between;">
+            
+            <div>
+                <!-- Header Halaman & Tombol Aksi Atas -->
+                <header style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 30px;">
+                    <div>
+                        <h1 style="font-size: 22px; font-weight: 800; color: #1e293b; margin-bottom: 4px;">Profile Settings</h1>
+                        <p style="font-size: 13px; color: #64748b;">Manage your personal information and preferences.</p>
+                    </div>
+                    <div style="display: flex; gap: 12px;">
+                        <button type="button" onclick="window.location.href='dashboard.html';" style="background-color: white; border: 1px solid #cbd5e1; color: #475569; padding: 10px 20px; border-radius: 6px; font-size: 12px; font-weight: 700; cursor: pointer;">Discard Changes</button>
+                        <button type="button" onclick="alert('Changes saved successfully!'); window.location.href='dashboard.html';" style="background-color: #0082a6; color: white; border: none; padding: 10px 20px; border-radius: 6px; font-size: 12px; font-weight: 700; cursor: pointer;">Save Changes</button>
+                    </div>
+                </header>
+
+                <!-- Grid Layout Utama: 2 Kolom (Kiri Form Lebar, Kanan Card-card Samping) -->
+                <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 30px; align-items: start;">
+                    
+                    <!-- ================= SISI KIRI ================= -->
+                    <div style="display: flex; flex-direction: column; gap: 24px;">
+                        
+                        <!-- Box 1: Personal Information -->
+                        <div style="background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                                <h3 style="font-size: 14px; font-weight: 800; color: #1e293b; text-transform: none;">Personal Information</h3>
+                                <i class="fas fa-pencil-alt" style="color: #0082a6; cursor: pointer; font-size: 13px;"></i>
+                            </div>
+                            
+                            <!-- Form Grid 2 Kolom -->
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                                <div>
+                                    <label style="font-size: 10px; font-weight: 800; color: #64748b; display: block; margin-bottom: 6px; text-transform: none;">Full Name</label>
+                                    <input type="text" value="Angela" style="width: 100%; padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 13px; color: #334155; outline: none; background-color: #f8fafc;">
+                                </div>
+                                <div>
+                                    <label style="font-size: 10px; font-weight: 800; color: #64748b; display: block; margin-bottom: 6px; text-transform: none;">Email Address</label>
+                                    <input type="email" value="angela.m@launex.com" style="width: 100%; padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 13px; color: #334155; outline: none; background-color: #f8fafc;">
+                                </div>
+                                <div>
+                                    <label style="font-size: 10px; font-weight: 800; color: #64748b; display: block; margin-bottom: 6px; text-transform: none;">Phone Number</label>
+                                    <div style="display: flex; align-items: center; border: 1px solid #cbd5e1; border-radius: 6px; background-color: #f8fafc; overflow: hidden;">
+                                        <span style="font-size: 13px; color: #475569; padding: 0 12px; border-right: 1px solid #cbd5e1; background-color: #e2e8f0; font-weight: 700;">+62</span>
+                                        <input type="text" value="81234567890" style="width: 100%; padding: 10px 14px; border: none; font-size: 13px; color: #334155; outline: none; background: transparent;">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label style="font-size: 10px; font-weight: 800; color: #64748b; display: block; margin-bottom: 6px; text-transform: none;">Member Since</label>
+                                    <input type="text" value="March 2024" disabled style="width: 100%; padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 13px; color: #94a3b8; background-color: #f1f5f9; cursor: not-allowed;">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Box 2: Saved Addresses -->
+                        <div style="background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                                <h3 style="font-size: 14px; font-weight: 800; color: #1e293b; text-transform: none;">Saved Addresses</h3>
+                                <button type="button" style="background: none; border: none; color: #0082a6; font-size: 11px; font-weight: 800; cursor: pointer;"><i class="fas fa-map-marker-alt"></i> Add New</button>
+                            </div>
+
+                            <!-- List Alamat 1: Apartment -->
+                            <div style="background-color: #f0f7ff; border: 1px solid #cbd5e1; border-radius: 8px; padding: 16px; display: flex; gap: 15px; margin-bottom: 15px; position: relative;">
+                                <div style="background-color: #00bef1; color: white; width: 36px; height: 36px; border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><i class="fas fa-home"></i></div>
+                                <div>
+                                    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+                                        <h4 style="font-size: 13px; font-weight: 800; color: #1e293b;">Angela's Apartment</h4>
+                                        <span style="font-size: 8px; font-weight: 900; background-color: #e0f2fe; color: #0369a1; padding: 2px 6px; border-radius: 4px; letter-spacing: 0.3px;">DEFAULT</span>
+                                    </div>
+                                    <p style="font-size: 11px; color: #64748b; line-height: 1.4; max-width: 480px;">Jl. Malioboro No. 123, Danurejan, Kota Yogyakarta, DI Yogyakarta 55213</p>
+                                </div>
+                            </div>
+
+                            <!-- List Alamat 2: Office -->
+                            <div style="background-color: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; display: flex; gap: 15px;">
+                                <div style="background-color: #e2e8f0; color: #475569; width: 36px; height: 36px; border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;"><i class="fas fa-building"></i></div>
+                                <div>
+                                    <h4 style="font-size: 13px; font-weight: 800; color: #1e293b; margin-bottom: 4px;">Office</h4>
+                                    <p style="font-size: 11px; color: #64748b; line-height: 1.4; max-width: 480px;">Gedung Grha Sabha Pramana, Bulaksumur, Yogyakarta 55281</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- ================= SISI KANAN ================= -->
+                    <div style="display: flex; flex-direction: column; gap: 24px;">
+                        
+                        <!-- Box 3: Notifications Preferences -->
+                        <div style="background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 24px;">
+                            <h3 style="font-size: 14px; font-weight: 800; color: #1e293b; margin-bottom: 20px; text-transform: none;">Notifications</h3>
+                            
+                            <div style="display: flex; flex-direction: column; gap: 16px;">
+                                <!-- Toggle 1 -->
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <div>
+                                        <h4 style="font-size: 12px; font-weight: 800; color: #1e293b; margin-bottom: 2px;">Order Updates</h4>
+                                        <p style="font-size: 10px; color: #64748b;">Progress of your laundry</p>
+                                    </div>
+                                    <label class="switch">
+                                        <input type="checkbox" checked>
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+
+                                <!-- Toggle 2 -->
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <div>
+                                        <h4 style="font-size: 12px; font-weight: 800; color: #1e293b; margin-bottom: 2px;">Promotions</h4>
+                                        <p style="font-size: 10px; color: #64748b;">Weekly deals and discounts</p>
+                                    </div>
+                                    <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Box 4: Account Security -->
+                        <div style="background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 24px;">
+                            <h3 style="font-size: 14px; font-weight: 800; color: #1e293b; margin-bottom: 20px; text-transform: none;">Account Security</h3>
+                            
+                            <div style="display: flex; flex-direction: column; gap: 16px;">
+                                <!-- Row 1: Change Password -->
+                                <div onclick="alert('Opening change password panel...');" style="display: flex; justify-content: space-between; align-items: center; cursor: pointer; padding: 4px 0;">
+                                    <div style="display: flex; align-items: center; gap: 10px;">
+                                        <i class="fas fa-lock" style="color: #64748b; font-size: 13px;"></i>
+                                        <span style="font-size: 12px; font-weight: 700; color: #334155;">Change Password</span>
+                                    </div>
+                                    <i class="fas fa-chevron-right" style="color: #94a3b8; font-size: 11px;"></i>
+                                </div>
+
+                                <!-- Row 2: Two-Factor Auth -->
+                                <div style="display: flex; justify-content: space-between; align-items: center; padding: 4px 0;">
+                                    <div style="display: flex; align-items: center; gap: 10px;">
+                                        <i class="fas fa-shield-alt" style="color: #64748b; font-size: 13px;"></i>
+                                        <span style="font-size: 12px; font-weight: 700; color: #334155;">Two-Factor Auth</span>
+                                    </div>
+                                    <span style="font-size: 9px; font-weight: 800; color: #475569; background-color: #f1f5f9; padding: 2px 6px; border-radius: 4px; letter-spacing: 0.3px;">OFF</span>
+                                </div>
+
+                                <!-- Row 3: Delete Account -->
+                                <div onclick="confirm('Are you sure you want to delete your account? This action is permanent.');" style="display: flex; align-items: center; gap: 10px; cursor: pointer; padding: 4px 0; color: #ef4444;">
+                                    <i class="far fa-trash-alt" style="font-size: 13px;"></i>
+                                    <span style="font-size: 12px; font-weight: 700;">Delete Account</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Box 5: Profile Strength (Progress Bar Biru Bawah) -->
+                        <div style="background-color: #0082a6; color: white; border-radius: 12px; padding: 24px; box-shadow: 0 4px 10px rgba(0, 130, 166, 0.15);">
+                            <h4 style="font-size: 13px; font-weight: 800; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                                <i class="fas fa-user-check"></i> Profile Strength
+                            </h4>
+                            <!-- Progress Bar Tracker -->
+                            <div style="background-color: rgba(255, 255, 255, 0.25); height: 6px; border-radius: 3px; overflow: hidden; margin-bottom: 12px;">
+                                <div style="width: 80%; height: 100%; background-color: white; border-radius: 3px;"></div>
+                            </div>
+                            <p style="font-size: 10px; line-height: 1.4; opacity: 0.9; margin: 0;">Your profile is almost complete! Add a backup email to reach 100%.</p>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Footer Bawah Halaman -->
+            <footer style="border-top: 1px solid #e2e8f0; padding-top: 20px; margin-top: 50px; display: flex; justify-content: space-between; font-size: 11px; color: #64748b;">
+                <span>© 2024 LaunEx Yogyakarta. Fresh & Dry Professionally.</span>
+                <div style="display: flex; gap: 15px;">
+                    <a href="#" style="color: #64748b; text-decoration: none;">Privacy Policy</a>
+                    <a href="#" style="color: #64748b; text-decoration: none;">Terms of Service</a>
+                    <a href="#" style="color: #64748b; text-decoration: none;">Contact Support</a>
+                </div>
+            </footer>
+
+        </main>
+    </div>
+
+    <script src="launex_script.js"></script>
+</body>
+</html>

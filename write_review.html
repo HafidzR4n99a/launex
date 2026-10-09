@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write Review - LaunEx</title>
+    <!-- Hubungkan ke CSS Utama -->
+    <link rel="stylesheet" href="launex_style.css">
+    <!-- FontAwesome untuk ikon modern -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* CSS Tambahan khusus interaksi bintang rating */
+        .rating-stars i {
+            font-size: 24px;
+            color: #cbd5e1;
+            cursor: pointer;
+            transition: color 0.2s ease;
+            margin: 0 4px;
+        }
+        .rating-stars i.active, .rating-stars i:hover {
+            color: #f59e0b; /* Warna kuning emas estetik */
+        }
+    </style>
+</head>
+<body class="dashboard-page-body">
+
+    <div class="dashboard-layout">
+        
+        <!-- ==========================================
+           1. SIDEBAR NAVIGASI (KONSISTEN & TETAP)
+           ========================================== -->
+        <aside class="sidebar-panel">
+            <div class="sidebar-brand">LaunEx</div>
+            
+            <div class="user-profile-summary">
+                <div class="avatar-wrapper" style="position: relative; cursor: pointer;">
+                    <img src="asset/angela.jpg" alt="Profile" id="user-avatar-img" class="user-avatar-img" style="width: 45px; height: 45px; border-radius: 50%; object-fit: cover; background-color: #cbd5e1;">
+                    <input type="file" id="avatar-upload" accept="image/*" style="display: none;">
+                </div>
+                <div class="user-meta">
+                    <span class="user-name" id="sidebar-name">Angela</span>
+                    <span class="user-status">Premium Member</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item active"><i class="fas fa-th-large"></i> DASHBOARD</a>
+                <a href="services.html" class="menu-item"><i class="fas fa-soap"></i> SERVICES</a>
+                <a href="order_tracking.html" class="menu-item"><i class="fas fa-history"></i> ORDER HISTORY</a>
+                <a href="notifications.html" class="menu-item"><i class="fas fa-bell"></i> NOTIFICATIONS</a>
+                <a href="reviews.html" class="menu-item"><i class="fas fa-star"></i> REVIEWS</a>
+                <a href="profile.html" class="menu-item"><i class="fas fa-user"></i> PROFILE</a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="btn-new-order"><i class="fas fa-plus"></i> NEW ORDER</button>
+                <a href="help_center.html" class="help-link"><i class="far fa-question-circle"></i> HELP CENTER</a>
+                <a href="home.html" id="logout-btn" class="logout-link"><i class="fas fa-sign-out-alt"></i> LOGOUT</a>
+            </div>
+        </aside>
+
+        <!-- ==========================================
+           2. AREA KONTEN UTAMA (WRITE REVIEW CARD)
+           ========================================== -->
+        <main class="main-content-panel" style="display: flex; justify-content: center; align-items: center; padding: 40px; background-color: #f8fafc; min-height: 100vh;">
+            
+            <!-- Kartu Putih Utama Review -->
+            <div style="background: white; border: 1px solid #e2e8f0; border-radius: 20px; width: 100%; max-width: 560px; padding: 45px 40px; box-shadow: 0 10px 25px rgba(0,0,0,0.02); position: relative;">
+                
+                <!-- Ikon Review Bulat di Atas -->
+                <div style="background-color: #e0f2fe; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px auto;">
+                    <i class="far fa-comment-dots" style="color: #0082a6; font-size: 24px;"></i>
+                </div>
+
+                <!-- Judul Konten -->
+                <h2 style="font-size: 18px; font-weight: 800; color: #1e293b; text-align: center; margin-bottom: 4px;">Review Your Experience</h2>
+                <span style="font-size: 11px; color: #94a3b8; display: block; text-align: center; margin-bottom: 30px;">Order #LX-20240905 • Completed 1h ago</span>
+
+                <!-- Bagian 1: Rating Bintang -->
+                <div style="text-align: center; margin-bottom: 30px;">
+                    <label style="font-size: 10px; font-weight: 800; color: #0082a6; display: block; margin-bottom: 12px; letter-spacing: 1px; text-transform: uppercase;">How was the service?</label>
+                    <div class="rating-stars" id="stars-container">
+                        <i class="far fa-star" data-index="1"></i>
+                        <i class="far fa-star" data-index="2"></i>
+                        <i class="far fa-star" data-index="3"></i>
+                        <i class="far fa-star" data-index="4"></i>
+                        <i class="far fa-star" data-index="5"></i>
+                    </div>
+                </div>
+
+                <!-- Bagian 2: Textarea Feedback -->
+                <div style="margin-bottom: 25px;">
+                    <label style="font-size: 10px; font-weight: 800; color: #0082a6; display: block; margin-bottom: 8px; letter-spacing: 1px; text-transform: uppercase;">Your Feedback</label>
+                    <textarea placeholder="Was your laundry fresh? How was the delivery? Let us know your thoughts..." style="width: 100%; height: 110px; border: 1px solid #e2e8f0; background-color: #f0f4f9; border-radius: 10px; padding: 14px; font-size: 12px; color: #334155; resize: none; outline: none; border: 1px solid #cbd5e1; font-family: inherit; line-height: 1.5;"></textarea>
+                </div>
+
+                <!-- Bagian 3: Upload Foto (Optional) -->
+                <div style="margin-bottom: 35px;">
+                    <label style="font-size: 10px; font-weight: 800; color: #0082a6; display: block; margin-bottom: 8px; letter-spacing: 1px; text-transform: uppercase;">Add Photos (Optional)</label>
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;">
+                        <!-- Kotak Input Upload Trigger -->
+                        <div style="border: 1px dashed #cbd5e1; background-color: #f8fafc; border-radius: 8px; height: 75px; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; color: #64748b;">
+                            <i class="fas fa-camera" style="font-size: 16px; margin-bottom: 4px;"></i>
+                            <span style="font-size: 9px; font-weight: 700;">Choose</span>
+                        </div>
+                        <!-- Slot Preview Kosong 1 -->
+                        <div style="background-color: #e0f2fe; opacity: 0.6; border-radius: 8px; height: 75px; display: flex; align-items: center; justify-content: center; color: #38bdf8;"><i class="far fa-image" style="font-size: 18px;"></i></div>
+                        <!-- Slot Preview Kosong 2 -->
+                        <div style="background-color: #e0f2fe; opacity: 0.6; border-radius: 8px; height: 75px; display: flex; align-items: center; justify-content: center; color: #38bdf8;"><i class="far fa-image" style="font-size: 18px;"></i></div>
+                        <!-- Slot Preview Kosong 3 -->
+                        <div style="background-color: #e0f2fe; opacity: 0.6; border-radius: 8px; height: 75px; display: flex; align-items: center; justify-content: center; color: #38bdf8;"><i class="far fa-image" style="font-size: 18px;"></i></div>
+                    </div>
+                </div>
+
+                <!-- Bagian 4: Tombol Aksi Bawah -->
+                <div style="display: flex; gap: 15px; align-items: center;">
+                    <button onclick="alert('Terima kasih atas ulasan Anda! Ulasan Anda telah dipublikasikan.'); window.location.href='reviews.html';" style="background-color: #0082a6; color: white; border: none; flex: 2; padding: 14px; border-radius: 10px; font-size: 13px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                        Submit Review <i class="fas fa-paper-plane" style="font-size: 11px;"></i>
+                    </button>
+                    <a href="dashboard.html" style="text-decoration: none; flex: 1; text-align: center;">
+                        <button type="button" style="background: transparent; border: none; color: #64748b; font-size: 13px; font-weight: 700; cursor: pointer; padding: 14px; width: 100%;">Skip</button>
+                    </a>
+                </div>
+
+            </div>
+
+        </main>
+    </div>
+
+    <script src="launex_script.js"></script>
+    <script>
+        // Logika Interaksi Bintang Sederhana biar Dosen kagum pas ngeklik
+        document.addEventListener('DOMContentLoaded', function() {
+            const stars = document.querySelectorAll('#stars-container i');
+            
+            stars.forEach(star => {
+                star.addEventListener('click', function() {
+                    const selectedIndex = parseInt(this.getAttribute('data-index'));
+                    
+                    stars.forEach(s => {
+                        const starIndex = parseInt(s.getAttribute('data-index'));
+                        if (starIndex <= selectedIndex) {
+                            s.classList.remove('far');
+                            s.classList.add('fas', 'active');
+                        } else {
+                            s.classList.remove('fas', 'active');
+                            s.classList.add('far');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

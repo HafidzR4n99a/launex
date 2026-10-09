@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Packages - LaunEx</title>
+    <!-- Hubungkan ke CSS Utama -->
+    <link rel="stylesheet" href="launex_style.css">
+    <!-- FontAwesome untuk ikon modern -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="dashboard-page-body">
+
+    <div class="dashboard-layout">
+        
+        <!-- ==========================================
+           1. SIDEBAR NAVIGASI (KONSISTEN & TETAP)
+           ========================================== -->
+        <aside class="sidebar-panel">
+            <div class="sidebar-brand">LaunEx</div>
+            
+            <div class="user-profile-summary">
+                <div class="avatar-wrapper" style="position: relative; cursor: pointer;">
+                    <img src="asset/angela.jpg" alt="Profile" id="user-avatar-img" class="user-avatar-img" style="width: 45px; height: 45px; border-radius: 50%; object-fit: cover; background-color: #cbd5e1;">
+                    <input type="file" id="avatar-upload" accept="image/*" style="display: none;">
+                </div>
+                <div class="user-meta">
+                    <span class="user-name" id="sidebar-name">Angela</span>
+                    <span class="user-status">Premium Member</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item active"><i class="fas fa-th-large"></i> DASHBOARD</a>
+                <a href="services.html" class="menu-item"><i class="fas fa-soap"></i> SERVICES</a>
+                <a href="order_tracking.html" class="menu-item"><i class="fas fa-history"></i> ORDER HISTORY</a>
+                <a href="notifications.html" class="menu-item"><i class="fas fa-bell"></i> NOTIFICATIONS</a>
+                <a href="reviews.html" class="menu-item"><i class="fas fa-star"></i> REVIEWS</a>
+                <a href="profile.html" class="menu-item"><i class="fas fa-user"></i> PROFILE</a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="btn-new-order"><i class="fas fa-plus"></i> NEW ORDER</button>
+                <a href="help_center.html" class="help-link"><i class="far fa-question-circle"></i> HELP CENTER</a>
+                <a href="home.html" id="logout-btn" class="logout-link"><i class="fas fa-sign-out-alt"></i> LOGOUT</a>
+            </div>
+        </aside>
+
+        <!-- ==========================================
+           2. AREA KONTEN UTAMA (PILIH PAKET LAUNEX)
+           ========================================== -->
+        <main class="main-content-panel">
+            
+            <header class="content-header" style="margin-bottom: 35px;">
+                <div class="welcome-heading">
+                    <h1 style="font-size: 24px; font-weight: 800; color: #1e293b; margin-bottom: 6px;">Pilihan Paket LaunEx</h1>
+                    <p style="font-size: 13px; color: #64748b; max-width: 600px; line-height: 1.5;">Pilih layanan yang paling sesuai dengan kebutuhan Anda. Dari perawatan dasar harian hingga pengeringan express premium untuk pakaian spesial Anda.</p>
+                </div>
+            </header>
+
+            <!-- Grid 3 Kolom Kartu Paket -->
+            <section class="packages-cards-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 40px; align-items: stretch;">
+                
+                <!-- Paket 1: Paket Basic -->
+                <div class="service-item-card" style="background: white; border: 1px solid #e2e8f0; border-radius: 16px; padding: 30px 24px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 4px 6px rgba(0,0,0,0.01); position: relative;">
+                    <div>
+                        <div class="package-icon" style="background-color: #f0f9ff; width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+                            <i class="fas fa-tint" style="color: #00bef1; font-size: 16px;"></i>
+                        </div>
+                        <h3 style="font-size: 18px; font-weight: 800; color: #1e293b; margin-bottom: 6px;">Paket Basic</h3>
+                        <p style="font-size: 11px; color: #64748b; margin-bottom: 20px;">Kualitas standar untuk pakaian sehari-hari.</p>
+                        
+                        <div class="price-box" style="margin-bottom: 8px;">
+                            <span style="font-size: 24px; font-weight: 800; color: #0082a6;">Rp 6.000</span>
+                            <span style="font-size: 12px; color: #64748b; font-weight: 600;">/kg</span>
+                        </div>
+                        <div style="font-size: 11px; color: #00bef1; font-weight: 700; margin-bottom: 25px;">Estimasi: 3 Hari</div>
+                        
+                        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">
+                            <li style="font-size: 12px; color: #334155; display: flex; align-items: center; gap: 10px;"><i class="fas fa-check" style="color: #00bef1; font-size: 11px;"></i> Cuci & Lipat Higienis</li>
+                            <li style="font-size: 12px; color: #334155; display: flex; align-items: center; gap: 10px;"><i class="fas fa-check" style="color: #00bef1; font-size: 11px;"></i> Deterjen Standar LaunEx</li>
+                            <li style="font-size: 12px; color: #334155; display: flex; align-items: center; gap: 10px;"><i class="fas fa-check" style="color: #00bef1; font-size: 11px;"></i> Packing Plastik PP</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- ALUR FIX: Mengarah ke detail kalkulator biaya -->
+                    <a href="service_detail.html" style="text-decoration: none; width: 100%;">
+                        <button style="background-color: transparent; color: #0082a6; border: 1px solid #00bef1; width: 100%; padding: 10px; border-radius: 8px; font-size: 12px; font-weight: 700; cursor: pointer; margin-top: 35px;">Pilih Basic</button>
+                    </a>
+                </div>
+
+                <!-- Paket 2: Paket Reguler (PALING POPULER) -->
+                <div class="service-item-card" style="background: white; border: 1px solid #e2e8f0; border-radius: 16px; padding: 30px 24px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 4px 6px rgba(0,0,0,0.01); position: relative;">
+                    <span class="popular-badge" style="position: absolute; top: 12px; right: 12px; background-color: #1e293b; color: white; font-size: 8px; font-weight: 800; padding: 4px 10px; border-radius: 4px; letter-spacing: 0.5px;">PALING POPULER</span>
+                    <div>
+                        <div class="package-icon" style="background-color: #e0f2fe; width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+                            <i class="fas fa-shower" style="color: #00bef1; font-size: 16px;"></i>
+                        </div>
+                        <h3 style="font-size: 18px; font-weight: 800; color: #1e293b; margin-bottom: 6px;">Paket Reguler</h3>
+                        <p style="font-size: 11px; color: #64748b; margin-bottom: 20px;">Keseimbangan sempurna kecepatan dan kualitas.</p>
+                        
+                        <div class="price-box" style="margin-bottom: 8px;">
+                            <span style="font-size: 24px; font-weight: 800; color: #0082a6;">Rp 10.000</span>
+                            <span style="font-size: 12px; color: #64748b; font-weight: 600;">/kg</span>
+                        </div>
+                        <div style="font-size: 11px; color: #00bef1; font-weight: 700; margin-bottom: 25px;">Estimasi: 1-2 Hari</div>
+                        
+                        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">
+                            <li style="font-size: 12px; color: #334155; display: flex; align-items: center; gap: 10px;"><i class="fas fa-check" style="color: #00bef1; font-size: 11px;"></i> Cuci, Setrika & Parfum Premium</li>
+                            <li style="font-size: 12px; color: #334155; display: flex; align-items: center; gap: 10px;"><i class="fas fa-check" style="color: #00bef1; font-size: 11px;"></i> Deterjen Anti-Bakteri</li>
+                            <li style="font-size: 12px; color: #334155; display: flex; align-items: center; gap: 10px;"><i class="fas fa-check" style="color: #00bef1; font-size: 11px;"></i> Softener Premium Aroma Tropis</li>
+                            <li style="font-size: 12px; color: #334155; display: flex; align-items: center; gap: 10px;"><i class="fas fa-check" style="color: #00bef1; font-size: 11px;"></i> Packing Rapi & Wangi</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- ALUR FIX: Mengarah ke detail kalkulator biaya -->
+                    <a href="service_detail.html" style="text-decoration: none; width: 100%;">
+                        <button style="background-color: #0082a6; color: white; border: none; width: 100%; padding: 11px; border-radius: 8px; font-size: 12px; font-weight: 700; cursor: pointer; margin-top: 35px;">Pilih Reguler</button>
+                    </a>
+                </div>
+
+                <!-- Paket 3: Paket Premium -->
+                <div class="service-item-card" style="background: white; border: 1px solid #e2e8f0; border-radius: 16px; padding: 30px 24px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 4px 6px rgba(0,0,0,0.01); position: relative;">
+                    <div>
+                        <div class="package-icon" style="background-color: #f0f9ff; width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+                            <i class="fas fa-paper-plane" style="color: #00bef1; font-size: 15px;"></i>
+                        </div>
+                        <h3 style="font-size: 18px; font-weight: 800; color: #1e293b; margin-bottom: 6px;">Paket Premium</h3>
+                        <p style="font-size: 11px; color: #64748b; margin-bottom: 20px;">Layanan Express dengan penanganan khusus.</p>
+                        
+                        <div class="price-box" style="margin-bottom: 8px;">
+                            <span style="font-size: 24px; font-weight: 800; color: #0082a6;">Rp 18.000</span>
+                            <span style="font-size: 12px; color: #64748b; font-weight: 600;">/kg</span>
+                        </div>
+                        <div style="font-size: 11px; color: #00bef1; font-weight: 700; margin-bottom: 25px;">Estimasi: 6-8 Jam</div>
+                        
+                        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">
+                            <li style="font-size: 12px; color: #334155; display: flex; align-items: center; gap: 10px;"><i class="fas fa-check" style="color: #00bef1; font-size: 11px;"></i> Priority Express Handling</li>
+                            <li style="font-size: 12px; color: #334155; display: flex; align-items: center; gap: 10px;"><i class="fas fa-check" style="color: #00bef1; font-size: 11px;"></i> Deterjen Khusus Serat Halus</li>
+                            <li style="font-size: 12px; color: #334155; display: flex; align-items: center; gap: 10px;"><i class="fas fa-check" style="color: #00bef1; font-size: 11px;"></i> Setrika Uap (Steam Iron)</li>
+                            <li style="font-size: 12px; color: #334155; display: flex; align-items: center; gap: 10px;"><i class="fas fa-check" style="color: #00bef1; font-size: 11px;"></i> Gratis Antar-Jemput Kilat</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- ALUR FIX: Mengarah ke detail kalkulator biaya -->
+                    <a href="service_detail.html" style="text-decoration: none; width: 100%;">
+                        <button style="background-color: transparent; color: #0082a6; border: 1px solid #00bef1; width: 100%; padding: 10px; border-radius: 8px; font-size: 12px; font-weight: 700; cursor: pointer; margin-top: 35px;">Pilih Premium</button>
+                    </a>
+                </div>
+
+            </section>
+
+            <!-- ==========================================
+               3. SECTION TANYA / PENAWARAN LAYANAN SATUAN
+               ========================================== -->
+            <section class="single-services-banner" style="background: white; border: 1px solid #e2e8f0; border-radius: 16px; padding: 35px; display: flex; justify-content: space-between; align-items: center; gap: 30px; margin-bottom: 50px; box-shadow: 0 4px 6px rgba(0,0,0,0.01);">
+                <div style="display: flex; gap: 25px; align-items: center; max-width: 70%;">
+                    <img src="asset/mesincuci login.jpg" alt="Laundry Room" style="width: 180px; height: 120px; border-radius: 10px; object-fit: cover;">
+                    <div>
+                        <h2 style="font-size: 20px; font-weight: 800; color: #1e293b; margin-bottom: 10px;">Butuh Layanan Satuan?</h2>
+                        <p style="font-size: 12px; color: #64748b; line-height: 1.6; margin-bottom: 15px;">Kami juga melayani pencucian satuan untuk Jas, Gaun, Jaket Kulit, dan perlengkapan tidur. Penanganan khusus menggunakan teknologi Dry Clean terkini untuk menjaga kualitas serat kain Anda.</p>
+                        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                            <span style="background-color: #f1f5f9; color: #475569; font-size: 10px; font-weight: 600; padding: 4px 12px; border-radius: 12px;">Jas & Blazer</span>
+                            <span style="background-color: #f1f5f9; color: #475569; font-size: 10px; font-weight: 600; padding: 4px 12px; border-radius: 12px;">Kebaya</span>
+                            <span style="background-color: #f1f5f9; color: #475569; font-size: 10px; font-weight: 600; padding: 4px 12px; border-radius: 12px;">Bedcover</span>
+                            <span style="background-color: #f1f5f9; color: #475569; font-size: 10px; font-weight: 600; padding: 4px 12px; border-radius: 12px;">Kain Sutera</span>
+                        </div>
+                    </div>
+                </div>
+                <button style="background-color: #00bef1; color: white; border: none; padding: 12px 24px; border-radius: 8px; font-size: 12px; font-weight: 700; cursor: pointer; white-space: nowrap;">Lihat Harga Satuan</button>
+            </section>
+
+            <!-- ==========================================
+               4. FOOTER HALAMAN INTERNAL
+               ========================================== -->
+            <footer class="footer-section" style="border-top: 1px solid #e2e8f0; padding-top: 30px;">
+                <div class="footer-grid-layout" style="display: grid; grid-template-columns: 2fr repeat(3, 1fr); gap: 30px;">
+                    <div>
+                        <h3 style="color: #00bef1; font-weight: 800; font-size: 18px; margin-bottom: 10px;">LaunEx</h3>
+                        <p style="font-size: 12px; color: #64748b; line-height: 1.6;">Layanan laundry profesional terbaik di Yogyakarta. Menjamin pakaian Anda kembali bersih, wangi, dan rapi seperti baru.</p>
+                        <p style="font-size: 11px; color: #94a3b8; margin-top: 10px;">© 2026 LaunEx Yogyakarta. Fresh & Dry Professionally.</p>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 12px; font-weight: 700; color: #1e293b; margin-bottom: 12px;">Perusahaan</h4>
+                        <a href="#" style="display: block; font-size: 11px; color: #64748b; text-decoration: none; margin-bottom: 8px;">About Us</a>
+                        <a href="#" style="display: block; font-size: 11px; color: #64748b; text-decoration: none; margin-bottom: 8px;">Terms of Service</a>
+                        <a href="#" style="display: block; font-size: 11px; color: #64748b; text-decoration: none; margin-bottom: 8px;">Privacy Policy</a>
+                        <a href="#" style="display: block; font-size: 11px; color: #64748b; text-decoration: none; margin-bottom: 8px;">Contact Support</a>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 12px; font-weight: 700; color: #1e293b; margin-bottom: 12px;">Lokasi</h4>
+                        <p style="font-size: 11px; color: #64748b; line-height: 1.5; margin-bottom: 8px;">Jl. Kaliurang KM 5.5, Depok, Sleman, DIY</p>
+                        <a href="mailto:hello@launex.id" style="font-size: 11px; color: #00bef1; text-decoration: none;"><i class="far fa-envelope"></i> hello@launex.id</a>
+                    </div>
+                </div>
+            </footer>
+
+        </main>
+    </div>
+
+    <!-- PANGGIL SCRIPT UTAMA AGAR INTEGRASI DATA TETAP JALAN -->
+    <script src="launex_script.js"></script>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications - LaunEx</title>
+    <!-- Hubungkan ke CSS Utama -->
+    <link rel="stylesheet" href="launex_style.css">
+    <!-- FontAwesome untuk ikon modern -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="dashboard-page-body">
+
+    <div class="dashboard-layout">
+        
+        <!-- ==========================================
+           1. SIDEBAR NAVIGASI (TAB NOTIFICATIONS AKTIF)
+           ========================================== -->
+        <aside class="sidebar-panel">
+            <div class="sidebar-brand">LaunEx</div>
+            
+            <div class="user-profile-summary">
+                <div class="avatar-wrapper" style="position: relative; cursor: pointer;">
+                    <img src="asset/angela.jpg" alt="Profile" id="user-avatar-img" class="user-avatar-img" style="width: 45px; height: 45px; border-radius: 50%; object-fit: cover; background-color: #cbd5e1;">
+                    <input type="file" id="avatar-upload" accept="image/*" style="display: none;">
+                </div>
+                <div class="user-meta">
+                    <span class="user-name" id="sidebar-name">Angela</span>
+                    <span class="user-status">Premium Member</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-menu">
+                <a href="dashboard.html" class="menu-item"><i class="fas fa-th-large"></i> DASHBOARD</a>
+                <a href="services.html" class="menu-item"><i class="fas fa-soap"></i> SERVICES</a>
+                <a href="order_tracking.html" class="menu-item"><i class="fas fa-history"></i> ORDER HISTORY</a>
+                <a href="notifications.html" class="menu-item active"><i class="fas fa-bell"></i> NOTIFICATIONS</a>
+                <a href="reviews.html" class="menu-item"><i class="fas fa-star"></i> REVIEWS</a>
+                <a href="profile.html" class="menu-item"><i class="fas fa-user"></i> PROFILE</a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="btn-new-order"><i class="fas fa-plus"></i> NEW ORDER</button>
+                <a href="help_center.html" class="help-link"><i class="far fa-question-circle"></i> HELP CENTER</a>
+                <a href="home.html" id="logout-btn" class="logout-link"><i class="fas fa-sign-out-alt"></i> LOGOUT</a>
+            </div>
+        </aside>
+
+        <!-- ==========================================
+           2. AREA KONTEN UTAMA (NOTIFICATIONS)
+           ========================================== -->
+        <main class="main-content-panel" style="padding: 30px 40px; display: flex; flex-direction: column; min-height: 100vh; justify-content: space-between;">
+            
+            <div>
+                <!-- Header Halaman Notifikasi -->
+                <header style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+                    <div>
+                        <h1 style="font-size: 24px; font-weight: 800; color: #1e293b;">Notifications</h1>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 12px; font-size: 12px; color: #64748b;">
+                        <span style="font-weight: 600;">You have <strong style="color: #00bef1; font-weight: 800;">3 unread</strong> alerts</span>
+                        <button style="background: transparent; border: none; color: #475569; font-size: 16px; cursor: pointer;"><i class="fas fa-cog"></i></button>
+                    </div>
+                </header>
+
+                <!-- List Notifikasi Group 1 (Terbaru) -->
+                <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 30px;">
+                    
+                    <!-- Notifikasi 1: Kurir Sedang Menuju Lokasi -->
+                    <div style="background-color: white; border: 1px solid #e2e8f0; border-left: 4px solid #00bef1; border-radius: 8px; padding: 20px; display: flex; gap: 20px; align-items: flex-start; box-shadow: 0 4px 6px rgba(0,0,0,0.01);">
+                        <div style="background-color: #00bef1; color: white; width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0;">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <div style="flex: 1;">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px;">
+                                <h3 style="font-size: 14px; font-weight: 800; color: #1e293b;">Kurir sedang menuju lokasi Anda</h3>
+                                <span style="font-size: 10px; color: #94a3b8; font-weight: 600;">Just now</span>
+                            </div>
+                            <p style="font-size: 12px; color: #475569; line-height: 1.5; margin-bottom: 12px; max-width: 700px;">Your laundry pickup for order <strong style="color: #1e293b;">LX-902500</strong> is in progress. Please have your laundry bag ready for the courier.</p>
+                            
+                            <!-- Tombol Aksi Track -->
+                            <a href="order_tracking.html" style="text-decoration: none;">
+                                <span style="background-color: #e0f2fe; color: #0369a1; font-size: 10px; font-weight: 800; padding: 4px 12px; border-radius: 12px; letter-spacing: 0.3px; display: inline-block; cursor: pointer;">Track Courier</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Notifikasi 2: Cucian Selesai -->
+                    <div style="background-color: white; border: 1px solid #e2e8f0; border-left: 4px solid #3b82f6; border-radius: 8px; padding: 20px; display: flex; gap: 20px; align-items: flex-start; box-shadow: 0 4px 6px rgba(0,0,0,0.01);">
+                        <div style="background-color: #3b82f6; color: white; width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0;">
+                            <i class="fas fa-check-double"></i>
+                        </div>
+                        <div style="flex: 1;">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px;">
+                                <h3 style="font-size: 14px; font-weight: 800; color: #1e293b;">Pesanan LX-902184 selesai dicuci</h3>
+                                <span style="font-size: 10px; color: #94a3b8; font-weight: 600;">2 hours ago</span>
+                            </div>
+                            <p style="font-size: 12px; color: #475569; line-height: 1.5; max-width: 700px;">Your laundry is fresh, dry, and professionaly folded. It is currently in the packing stage and will be delivered soon.</p>
+                        </div>
+                    </div>
+
+                    <!-- Notifikasi 3: Voucher Diskon -->
+                    <div style="background-color: white; border: 1px solid #e2e8f0; border-left: 4px solid #3b82f6; border-radius: 8px; padding: 20px; display: flex; gap: 20px; align-items: flex-start; box-shadow: 0 4px 6px rgba(0,0,0,0.01);">
+                        <div style="background-color: #3b82f6; color: white; width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0;">
+                            <i class="fas fa-tag"></i>
+                        </div>
+                        <div style="flex: 1;">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px;">
+                                <h3 style="font-size: 14px; font-weight: 800; color: #1e293b;">Dapatkan diskon 10% untuk pesanan berikutnya!</h3>
+                                <span style="font-size: 10px; color: #94a3b8; font-weight: 600;">Yesterday</span>
+                            </div>
+                            <p style="font-size: 12px; color: #475569; line-height: 1.5; max-width: 700px;">Use code <strong style="color: #0082a6;">FRESHYOGYA</strong> on your next order. Valid for all services in Yogyakarta region.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Separator Separator Minggu Lalu -->
+                <div style="text-align: center; position: relative; margin: 40px 0 25px 0;">
+                    <div style="position: absolute; left: 0; right: 0; top: 50%; height: 1px; background-color: #cbd5e1; z-index: 1;"></div>
+                    <span style="font-size: 9px; font-weight: 900; background-color: #f8fafc; color: #94a3b8; padding: 0 15px; position: relative; z-index: 2; letter-spacing: 1px; text-transform: uppercase;">Earlier This Week</span>
+                </div>
+
+                <!-- List Notifikasi Group 2 (Lama) -->
+                <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 40px;">
+                    
+                    <!-- Notifikasi 4: Top-up Saldo -->
+                    <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px; display: flex; gap: 20px; align-items: flex-start; opacity: 0.8;">
+                        <div style="background-color: #e2e8f0; color: #64748b; width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0;">
+                            <i class="far fa-credit-card"></i>
+                        </div>
+                        <div style="flex: 1;">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px;">
+                                <h3 style="font-size: 14px; font-weight: 800; color: #475569;">Top-up Saldo Berhasil</h3>
+                                <span style="font-size: 10px; color: #94a3b8;">3 days ago</span>
+                            </div>
+                            <p style="font-size: 12px; color: #64748b; line-height: 1.5; max-width: 700px;">Your balance has been credited with Rp 100.000 via GoPay. You can now use it for your next laundry service.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Footer Bawah Halaman -->
+            <footer style="border-top: 1px solid #e2e8f0; padding-top: 25px;">
+                <div style="display: grid; grid-template-columns: 2fr repeat(3, 1fr); gap: 30px;">
+                    <div>
+                        <h3 style="color: #00bef1; font-weight: 800; font-size: 18px; margin-bottom: 10px;">LaunEx</h3>
+                        <p style="font-size: 12px; color: #64748b; line-height: 1.6;">Professional laundry services in Yogyakarta. Freshness delivered to your doorstep.</p>
+                        <p style="font-size: 11px; color: #94a3b8; margin-top: 10px;">© 2026 LaunEx Yogyakarta. Fresh & Dry Professionally.</p>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 12px; font-weight: 700; color: #1e293b; margin-bottom: 12px;">Company</h4>
+                        <a href="#" style="display: block; font-size: 11px; color: #64748b; text-decoration: none; margin-bottom: 8px;">About Us</a>
+                        <a href="#" style="display: block; font-size: 11px; color: #64748b; text-decoration: none; margin-bottom: 8px;">Careers</a>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 12px; font-weight: 700; color: #1e293b; margin-bottom: 12px;">Support</h4>
+                        <a href="#" style="display: block; font-size: 11px; color: #64748b; text-decoration: none; margin-bottom: 8px;">Contact Support</a>
+                        <a href="#" style="display: block; font-size: 11px; color: #64748b; text-decoration: none; margin-bottom: 8px;">Help Center</a>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 12px; font-weight: 700; color: #1e293b; margin-bottom: 12px;">Legal</h4>
+                        <a href="#" style="display: block; font-size: 11px; color: #64748b; text-decoration: none; margin-bottom: 8px;">Terms of Service</a>
+                        <a href="#" style="display: block; font-size: 11px; color: #64748b; text-decoration: none; margin-bottom: 8px;">Privacy Policy</a>
+                    </div>
+                </div>
+            </footer>
+
+        </main>
+    </div>
+
+    <script src="launex_script.js"></script>
+</body>
+</html> 
